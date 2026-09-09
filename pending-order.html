@@ -437,7 +437,10 @@
     // Wait for DOMContentLoaded + firebaseReady, then load order
     document.addEventListener('DOMContentLoaded', function() {
         console.log('[Pending] DOMContentLoaded fired');
-        var orderId = new URLSearchParams(window.location.search).get('order') || sessionStorage.getItem('lastOrderId');
+        var _pq = new URLSearchParams(window.location.search);
+        var orderId = _pq.get('order') || _pq.get('ref') || sessionStorage.getItem('lastOrderId');
+        var easykashReturn = _pq.get('source') === 'easykash';
+        window._pendingEasyKashReturn = easykashReturn;
         console.log('[Pending] orderId =', orderId);
         console.log('[Pending] window.location.search =', window.location.search);
         console.log('[Pending] sessionStorage.lastOrderId =', sessionStorage.getItem('lastOrderId'));
@@ -570,6 +573,7 @@
             status: l === 'ar' ? 'الحالة:' : l === 'en' ? 'Status:' : 'Statut:',
             products: l === 'ar' ? 'المنتجات:' : l === 'en' ? 'Products:' : 'Produits:',
             receipt: l === 'ar' ? 'صورة الإيصال' : l === 'en' ? 'Receipt Image' : 'Image du reçu',
+            onlinePayment: l === 'ar' ? 'دفع إلكتروني آمن' : l === 'en' ? 'Secure online payment' : 'Paiement en ligne sécurisé',
             undefined: l === 'ar' ? 'غير محدد' : l === 'en' ? 'N/A' : 'N/A',
             clickToCopy: l === 'ar' ? 'اضغط للنسخ' : l === 'en' ? 'Click to copy' : 'Cliquer pour copier',
             itemsCount: l === 'ar' ? 'منتجات' : l === 'en' ? 'products' : 'produits',
@@ -632,6 +636,7 @@
         var _pmKey = order.paymentMethod || '';
         var _pmDisp = (typeof PAYMENT_ACCOUNTS !== 'undefined' && PAYMENT_ACCOUNTS[_pmKey] && PAYMENT_ACCOUNTS[_pmKey].name && PAYMENT_ACCOUNTS[_pmKey].name[_pl]) || order.paymentMethodName || order.paymentMethod || _pi18n.undefined;
         var html = '<div class="order-id" onclick="copyOrderId(\'' + (order.orderId||'') + '\')" title="' + _pi18n.clickToCopy + '">#' + (order.orderId||'N/A') + '</div>' +
+            (order.paidVia === 'easykash' || order.isEasyKash ? '<div class="info-row"><span class="info-label"><i class="fas fa-lock"></i> ' + _pi18n.onlinePayment + '</span><span class="info-value" style="color:#10b981;font-weight:700">✅ EasyKash</span></div>' : '') +
             '<div class="info-row"><span class="info-label"><i class="fas fa-money-bill-wave"></i> ' + _pi18n.amount + '</span><span class="info-value">' + (order.price||0) + ' ' + _dispCur + '</span></div>' +
             '<div class="info-row"><span class="info-label"><i class="fas fa-credit-card"></i> ' + _pi18n.paymentMethod + '</span><span class="info-value">' + _pmDisp + '</span></div>' +
             '<div class="info-row"><span class="info-label"><i class="fas fa-user"></i> ' + _pi18n.name + '</span><span class="info-value">' + (order.customerName||_pi18n.undefined) + '</span></div>' +

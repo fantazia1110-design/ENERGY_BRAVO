@@ -148,6 +148,17 @@ let PAYMENT_ACCOUNTS = {
             fr: ['Ouvrez l\'application RedotPay', 'Choisissez "Envoyer"', 'Entrez l\'ID indiqué', 'Capture d\'écran et téléchargez']
         },
         redotID: '1100359843'
+    },
+    easykash: {
+        name: { ar: 'إيزي كاش', en: 'EasyKash', fr: 'EasyKash' },
+        logo: 'https://easykash.net/wp-content/uploads/2023/01/EasyKash-logo-1.png',
+        instructions: {
+            ar: ['اختر إيزي كاش واضغط "الدفع الآن"', 'ستنتقل لصفحة الدفع الآمنة', 'اختر طريقة الدفع المناسبة (بطاقة، محفظة، فوري...)', 'أكمل الدفع وسيتم تأكيد طلبك تلقائياً'],
+            en: ['Choose EasyKash and click "Pay Now"', 'You will be redirected to the secure payment page', 'Choose your preferred payment method (Card, Wallet, Fawry...)', 'Complete payment and your order will be confirmed automatically'],
+            fr: ['Choisissez EasyKash et cliquez sur "Payer maintenant"', 'Vous serez redirigé vers la page de paiement sécurisée', 'Choisissez votre méthode de paiement (Carte, Portefeuille, Fawry...)', 'Terminez le paiement et votre commande sera confirmée automatiquement']
+        },
+        isGateway: true,
+        supportedOptions: ['cards', 'wallets', 'cash', 'meeza', 'valu', 'applePay', 'tru']
     }
 };
 window.PAYMENT_ACCOUNTS = PAYMENT_ACCOUNTS;
@@ -2556,12 +2567,37 @@ function displayPaymentMethods() {
 
 function selectPaymentMethod(key) {
     const wasSelected = selectedPaymentMethod === key;
-    if (wasSelected) { selectedPaymentMethod = null; document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected')); document.getElementById('paymentDetails')?.classList.remove('show'); document.getElementById('customerInfoSection').style.display = 'none'; document.getElementById('step2')?.classList.remove('active'); document.getElementById('step3')?.classList.remove('active'); checkCheckoutFormValidity(); return; }
+    if (wasSelected) { selectedPaymentMethod = null; document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected')); document.getElementById('paymentDetails')?.classList.remove('show'); document.getElementById('customerInfoSection').style.display = 'none'; document.getElementById('step2')?.classList.remove('active'); document.getElementById('step3')?.classList.remove('active'); const _rg = document.getElementById('receiptUploadGroup'); if (_rg) _rg.style.display = 'block'; checkCheckoutFormValidity(); return; }
     selectedPaymentMethod = key; const m = window.paymentMethods?.[key] || PAYMENT_ACCOUNTS[key];
     document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
     document.querySelector(`[data-payment="${key}"]`)?.classList.add('selected');
     const d = document.getElementById('paymentDetails'); if (!d) return;
     var ckT = _ckI18n(currentLang);
+    const recGroup = document.getElementById('receiptUploadGroup');
+    const isGatewaySel = m.isGateway === true;
+    if (recGroup) recGroup.style.display = isGatewaySel ? 'none' : 'block';
+    
+    // ── GATEWAY PAYMENT (e.g. EasyKash) ──
+    if (m.isGateway) {
+        let gh = `<h2 class="section-title"><span class="section-title-text">${ckT.paymentDetails}</span><span class="emoji">🔒</span></h2>`;
+        gh += `<div class="gateway-payment-wrap" style="text-align:center;padding:10px 0">`;
+        gh += `<img src="${m.logo || ''}" alt="${m.name ? (m.name[currentLang] || m.name.en || m.name.ar || '') : ''}" style="max-height:70px;max-width:100%;object-fit:contain;margin-bottom:15px">`;
+        gh += `<p style="color:var(--text-secondary);font-size:0.95em;font-weight:700;margin:0 0 20px;line-height:1.8">${currentLang === 'ar' ? 'سيتم تحويلك إلى صفحة دفع آمنة لإتمام عملية الشراء إلكترونياً. اختر وسيلة الدفع المناسبة ثم أكمل الدفع وسيتم تأكيد طلبك تلقائياً.' : currentLang === 'en' ? 'You will be redirected to a secure payment page to complete your purchase online. Choose your preferred payment method and complete the payment — your order will be confirmed automatically.' : 'Vous serez redirigé vers une page de paiement sécurisée. Choisissez votre mode de paiement et terminez — votre commande sera confirmée automatiquement.'}</p>`;
+        gh += `<ul class="instructions-list" style="text-align:right;margin-bottom:20px">`;
+        let gInst = m.instructions[currentLang] || m.instructions.en || m.instructions.ar || [];
+        gInst.forEach((inst, i) => { gh += `<li><strong>${i + 1}.</strong> ${inst}</li>`; });
+        gh += `</ul>`;
+        gh += `<a href="#" onclick="event.preventDefault();startEasyKashCheckout();return false;" class="gateway-pay-btn" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#9333ea,#f59e0b);color:#fff;font-weight:900;font-size:1.1em;padding:15px 40px;border-radius:16px;text-decoration:none;box-shadow:0 10px 30px rgba(147,51,234,0.35);margin:10px auto;cursor:pointer"><i class="fas fa-lock"></i> ${currentLang === 'ar' ? 'الدفع الآن عبر إيزي كاش' : currentLang === 'en' ? 'Pay Now via EasyKash' : 'Payer maintenant via EasyKash'}</a>`;
+        gh += `<div id="easykashCheckoutMsg" style="margin-top:15px;font-size:0.9em;font-weight:700;min-height:22px"></div>`;
+        gh += `</div>`;
+        d.innerHTML = gh;
+        d.classList.add('show');
+        const cs = document.getElementById('customerInfoSection'); if (cs) cs.style.display = 'block';
+        const s2 = document.getElementById('step2'); if (s2) s2.classList.add('active');
+        setTimeout(() => { d.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 300);
+        return;
+    }
+
     let h = `<h2 class="section-title"><span class="section-title-text">${ckT.paymentDetails}</span><span class="emoji">📋</span></h2><ul class="instructions-list">`;
     let instList = m.instructions[currentLang] || m.instructions.en || m.instructions.ar || [];
     instList.forEach((inst, i) => { h += `<li><strong>${i + 1}.</strong> ${inst}</li>`; });
@@ -2726,8 +2762,9 @@ function showUploadError(title, message, fileName, fileSize) {
 function checkCheckoutFormValidity() {
     const n = document.getElementById('customerName')?.value.trim(), e = document.getElementById('customerEmail')?.value.trim(), p = document.getElementById('customerPhone')?.value.trim(), btn = document.getElementById('submitBtn');
     const hint = document.getElementById('checkoutHint');
+    const _isGateway = selectedPaymentMethod ? ((window.paymentMethods?.[selectedPaymentMethod] || PAYMENT_ACCOUNTS[selectedPaymentMethod] || {}).isGateway === true) : false;
     if (btn) {
-        const valid = n && e && p && (uploadedFile || uploadedImageUrl) && selectedPaymentMethod;
+        const valid = n && e && p && selectedPaymentMethod && (_isGateway || uploadedFile || uploadedImageUrl);
         btn.disabled = !valid;
         const s3 = document.getElementById('step3');
         if (s3) s3.classList.toggle('active', valid);
@@ -2924,8 +2961,102 @@ async function _translateLinesArTo(lines, targetLang) {
     return results;
 }
 
+// ==================== EASYKASH GATEWAY CHECKOUT ====================
+let _easykashInProgress = false;
+async function startEasyKashCheckout() {
+    if (_easykashInProgress) return;
+    _easykashInProgress = true;
+    try {
+        await _startEasyKashCheckoutInner();
+    } finally {
+        setTimeout(() => { _easykashInProgress = false; }, 15000);
+    }
+}
+window.startEasyKashCheckout = startEasyKashCheckout;
+
+async function _startEasyKashCheckoutInner() {
+    const msg = document.getElementById('easykashCheckoutMsg');
+    const setMsg = (t, isErr) => { if (msg) { msg.textContent = t; if (isErr) msg.style.color = '#ef4444'; else msg.style.color = '#10b981'; } };
+    try {
+        if (!checkoutOrderData) throw new Error(currentLang === 'ar' ? 'لا توجد بيانات طلب' : 'No order data');
+        const name = document.getElementById('customerName')?.value.trim();
+        const email = document.getElementById('customerEmail')?.value.trim();
+        const phone = document.getElementById('customerPhone')?.value.trim();
+        if (!name || !email || !phone) {
+            setMsg(currentLang === 'ar' ? 'يرجى إدخال الاسم والبريد والهاتف أولاً' : 'Please fill in name, email and phone first', true);
+            document.getElementById('customerInfoSection')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            return;
+        }
+        setMsg(currentLang === 'ar' ? 'جاري تجهيز صفحة الدفع...' : 'Preparing payment page...', false);
+        const base = window.location.origin || window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+        const orderId = String(100000 + Math.floor(Math.random() * 900000));
+        const amount = parseFloat(checkoutOrderData.price) || 0;
+        if (amount < 1) throw new Error(currentLang === 'ar' ? 'سعر غير صالح' : 'Invalid price');
+        const res = await fetch((base + '/api/easykash-create-session').replace(/([^:])\/\//g, '$1/'), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                amount: amount,
+                currency: 'EGP',
+                customerName: name,
+                customerEmail: email,
+                customerPhone: phone.replace(/[^0-9]/g, ''),
+                orderId: orderId,
+                productTitle: checkoutOrderData.productTitle || 'Product',
+                paymentOptions: ['cards', 'wallets', 'cash', 'meeza', 'valu', 'applePay', 'tru']
+            })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.redirectUrl) {
+            throw new Error(data.error || data.details?.message || (currentLang === 'ar' ? 'تعذر إنشاء جلسة الدفع' : 'Failed to create payment session'));
+        }
+        // إنشاء الطلب محلياً وفايربيز بحالة pending (يُفعل تلقائياً عبر callback)
+        try {
+            const now = new Date(), ts = Date.now();
+            const order = {
+                isEasyKash: true,
+                items: checkoutOrderData.isMultipleItems ? checkoutOrderData.items : null,
+                productId: checkoutOrderData.productId || 'N/A',
+                productTitle: checkoutOrderData.productTitle || 'Product',
+                price: amount,
+                currency: 'EGP',
+                paymentMethod: 'easykash',
+                paymentMethodName: (window.paymentMethods?.easykash?.name?.ar) || 'إيزي كاش',
+                customerName: name,
+                customerEmail: email,
+                customerPhone: phone,
+                userId: currentUser?.uid || 'guest',
+                userEmail: currentUser?.email || email,
+                userCountry: checkoutOrderData.userCountry || userCountry || 'EG',
+                status: 'pending',
+                orderDate: now.toISOString(),
+                createdAt: ts,
+                orderDateReadable: now.toLocaleDateString(currentLang === 'ar' ? 'ar-EG' : currentLang === 'en' ? 'en-US' : 'fr-FR'),
+                orderTimeReadable: now.toLocaleTimeString(currentLang === 'ar' ? 'ar-EG' : currentLang === 'en' ? 'en-US' : 'fr-FR'),
+                easykashRef: String(data.customerReference || orderId),
+                receiptImageUrl: ''
+            };
+            await DB.set(`orders/${orderId}`, { ...order, orderId });
+            localStorage.setItem('currentOrder', JSON.stringify({ ...order, orderId }));
+        } catch (e) { console.warn('Local order create warn:', e); }
+        setMsg(currentLang === 'ar' ? 'جاري تحويلك لصفحة الدفع الآمنة...' : 'Redirecting to secure payment...', false);
+        sessionStorage.setItem('easykashRef', String(data.customerReference || orderId));
+        sessionStorage.setItem('lastOrderId', orderId);
+window.location.href = data.redirectUrl;
+    } catch (err) {
+        console.error('EasyKash error:', err);
+        setMsg(err.message || (currentLang === 'ar' ? 'حدث خطأ، حاول مرة أخرى' : 'Error, try again'), true);
+    }
+}
+
 async function handleCheckoutSubmit(e) {
     e.preventDefault(); e.stopPropagation();
+    // Gateway payment (EasyKash) is handled separately — don't bypass it
+    const _gw = selectedPaymentMethod ? (window.paymentMethods?.[selectedPaymentMethod] || PAYMENT_ACCOUNTS[selectedPaymentMethod] || {}) : {};
+    if (_gw.isGateway) {
+        startEasyKashCheckout();
+        return;
+    }
     const btn = document.getElementById('submitBtn'), orig = btn.innerHTML; btn.disabled = true;
     btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${currentLang === 'ar' ? 'جاري الحفظ...' : currentLang === 'en' ? 'Saving...' : 'Sauvegarde...'}`;
     const now = new Date(), ts = Date.now();
@@ -4852,6 +4983,42 @@ function loadAdminOrders() {
             }
         }
         window._lastPendingCount = pending;
+    });
+
+    // ── Auto-confirm EasyKash payments (webhook inbox → order confirmation) ──
+    DB.on('meta/easykashPayments', (data) => {
+        if (!data || typeof data !== 'object') return;
+        if (!window._processedEasykashRefs) window._processedEasykashRefs = {};
+        Object.entries(data).forEach(([ref, payment]) => {
+            if (!payment || !payment.status) return;
+            const st = String(payment.status).toUpperCase();
+            const isPaid = ['PAID', 'SUCCESS', 'CAPTURED', 'APPROVED', 'COMPLETED', 'AUTHORIZED'].indexOf(st) !== -1;
+            if (!isPaid) return;
+            if (window._processedEasykashRefs[ref]) return;
+            window._processedEasykashRefs[ref] = true;
+            const refStr = String(ref);
+            DB.get('orders').then(allOrders => {
+                const entries = (allOrders && typeof allOrders === 'object') ? Object.entries(allOrders) : [];
+                const match = entries.find(([id, o]) => o && (String(o.easykashRef) === refStr || String(id) === refStr || String(o.orderId) === refStr));
+                if (!match) return;
+                const [orderId, order] = match;
+                if (order.status === 'confirmed' || order.status === 'rejected' || order.status === 'trashed') return;
+                DB.update(`orders/${orderId}`, {
+                    status: 'confirmed',
+                    confirmedAt: Date.now(),
+                    paymentConfirmed: true,
+                    paidVia: 'easykash',
+                    easykashStatus: st,
+                    easykashPaymentMethod: payment.paymentMethod || order.easykashPaymentMethod || '',
+                    easykashVoucher: payment.voucher || '',
+                    easykashTxnRef: payment.easykashRef || ''
+                }).then(() => {
+                    showToast('✅', (document.documentElement.lang === 'ar' ? 'تم تأكيد دفع EasyKash تلقائياً' : document.documentElement.lang === 'en' ? 'EasyKash payment auto-confirmed' : 'Paiement EasyKash confirmé automatiquement'), 'success');
+                    // Remove processed inbox entry from Firebase + local to stop re-processing
+                    try { DB.set(`meta/easykashPayments/${ref}`, null); } catch(e) {}
+                }).catch(e => console.error('EasyKash auto-confirm failed for', ref, e));
+            }).catch(e => console.error('EasyKash order lookup failed', e));
+        });
     });
 }
 
