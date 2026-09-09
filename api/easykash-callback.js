@@ -97,15 +97,23 @@ module.exports = async (req, res) => {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const rawBody = JSON.stringify(req.body || {});
-    const signature = req.headers['x-easykash-signature'] || req.headers['x-pay-signature'] || req.headers['signature'] || null;
+    const b = req.body || {};
+    // EasyKash sends the signature INSIDE the body as `signatureHash` (docs), not as a header.
+    const signature = b.signatureHash || req.headers['x-easykash-signature'] || req.headers['x-pay-signature'] || req.headers['signature'] || null;
+    // Compute the hash over the payload WITHOUT the signatureHash field itself.
+    const bodyForSig = (() => {
+        try {
+            const copy = JSON.parse(JSON.stringify(b));
+            delete copy.signatureHash;
+            return JSON.stringify(copy);
+        } catch (e) { return JSON.stringify(b); }
+    })();
 
-    const sigResult = verifySignature(rawBody, signature);
+    const sigResult = verifySignature(bodyForSig, signature);
     if (!sigResult.ok) {
         return res.status(400).json({ error: 'Invalid signature', reason: sigResult.reason });
     }
 
-    const b = req.body || {};
     const customerReference = b.customerReference;
     const status = (b.status || '').toUpperCase();
     const easykashRef = b.easykashRef || '';
