@@ -31,7 +31,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    transition: transform 0.3s ease;
+    transition: filter 0.3s ease;
     cursor: default;
     animation: textGradientShift 5s ease-in-out infinite;
     color: #f59e0b !important;
@@ -40,7 +40,7 @@
 }
 
 .page-hero-wrapper .hero-headline:hover {
-    transform: scale(1.05);
+    filter: brightness(1.25);
 }
 
 /* Brand row */

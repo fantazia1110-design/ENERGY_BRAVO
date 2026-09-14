@@ -115,13 +115,12 @@ nav {
     position: relative;
     display: inline-block;
     cursor: default;
-    transition: transform 0.3s ease, letter-spacing 0.3s ease;
+    transition: filter 0.3s ease;
     animation: textGradientShift 5s ease-in-out infinite;
 }
 
 .logo-text:hover {
-    transform: scale(1.08);
-    letter-spacing: 3px;
+    filter: brightness(1.25);
 }
 
 @keyframes textGradientShift {

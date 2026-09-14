@@ -15,11 +15,11 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: textGradientShift 5s ease-in-out infinite;
-    transition: transform 0.3s ease;
+    transition: filter 0.3s ease;
     cursor: default;
 }
 .product-details-page .page-hero-wrapper .hero-headline:hover {
-    transform: scale(1.05);
+    filter: brightness(1.25);
 }
 .product-details-page .page-hero-wrapper .hero-headline .emoji {
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
