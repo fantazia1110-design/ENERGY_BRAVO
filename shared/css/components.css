@@ -39,10 +39,6 @@
     font-weight: 900;
 }
 
-.page-hero-wrapper .hero-headline:hover {
-    filter: brightness(1.25);
-}
-
 /* Brand row */
 .page-hero-wrapper .hero-brand-row {
     display: inline-flex;
@@ -778,12 +774,13 @@
     }
 }
 
-/* Reveal Animation System - for .reveal class (not [data-reveal]) */
+/* Reveal Animation System - for .reveal class (not [data-reveal])
+   NOTE: animations disabled for color stability (opacity/transform
+   animations repaint background-clip:text gradients and shift colors) */
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 1;
+    transform: none;
+    transition: none;
 }
 .reveal.revealed {
     opacity: 1;

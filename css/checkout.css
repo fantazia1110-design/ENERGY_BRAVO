@@ -128,9 +128,6 @@ body.checkout-page {
     transform-origin: center center;
     cursor: default;
 }
-.summary-title:hover {
-    filter: brightness(1.25);
-}
 .summary-title .summary-title-text {
     background: linear-gradient(90deg, #9333ea 0%, #f59e0b 50%, #9333ea 100%);
     background-size: 300% 100%;
@@ -661,11 +658,6 @@ body.checkout-page {
     transition: filter 0.3s ease;
     transform-origin: center center;
 }
-.payment-section:hover .section-title,
-.section-title:hover {
-    filter: brightness(1.25);
-}
-
 .payment-section {
     background: var(--card-bg);
     padding: 35px;

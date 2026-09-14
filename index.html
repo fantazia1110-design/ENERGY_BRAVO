@@ -54,10 +54,10 @@
     <!-- Modular CSS -->
     <link rel="stylesheet" href="shared/css/global.css?v=3">
     <link rel="stylesheet" href="shared/css/toast.css?v=5">
-    <link rel="stylesheet" href="shared/css/header.css?v=3534">
+    <link rel="stylesheet" href="shared/css/header.css?v=36">
     <link rel="stylesheet" href="shared/css/footer.css?v=10">
     <link rel="stylesheet" href="shared/css/quick-view.css?v=23">
-    <link rel="stylesheet" href="shared/css/components.css?v=17">
+    <link rel="stylesheet" href="shared/css/components.css?v=19">
     <style>
 /* ╔══════════════════════════════════════════════════════════════════════════════════╗
    ║                                                                                ║
@@ -72,9 +72,6 @@
     display: inline-block;
     transition: filter 0.3s ease;
     cursor: default;
-}
-.hero-headline.typing-done:hover {
-    filter: brightness(1.25);
 }
 
 /* تم حذف الأنيميشن القديم للـ h1 لضمان عمل الآلة الكاتبة بوضوح وبدون تداخل */
@@ -159,18 +156,12 @@ h1 {
     cursor: default;
     animation: textGradientShift 5s ease-in-out infinite;
 }
-.hero-headline:hover {
-    filter: brightness(1.25);
-}
 .hero-brand-row {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     width: 100%;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hero-brand-row.visible {
@@ -200,17 +191,14 @@ h1 {
     transition: filter 0.3s ease;
     animation: textGradientShift 5s ease-in-out infinite;
 }
-.brand-name:hover {
-    filter: brightness(1.25);
-}
 .brand-emoji {
     display: inline-block;
     line-height: 1;
     flex-shrink: 0;
-    transition: transform 0.3s ease;
+    transition: filter 0.3s ease;
 }
 .brand-emoji:hover {
-    transform: scale(1.05);
+    filter: brightness(1.25);
 }
 
 .emoji {
@@ -348,10 +336,6 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-.section-header h2 .section-title-text:hover {
-    filter: brightness(1.25);
 }
 
 .section-header p {
@@ -1490,8 +1474,7 @@ body[dir="rtl"] .qv-wishlist-btn {
    Scroll Reveal — أنيميشن الظهور عند التمرير
    ═══════════════════════════════════════════════════════════════ */
 .reveal {
-    opacity: 0;
-    will-change: opacity, transform;
+    opacity: 1;
 }
 
 .reveal.animate-in {
@@ -1550,7 +1533,7 @@ body[dir="rtl"] .qv-wishlist-btn {
 
 </style>
     <link rel="stylesheet" href="shared/css/responsive.css?v=16">
-    <link rel="stylesheet" href="shared/css/product-card.css?v=53">
+    <link rel="stylesheet" href="shared/css/product-card.css?v=15">
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -2295,15 +2278,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(typeChar, 45);
             } else {
                 cursorSpan.classList.add('done');
-                if (brandRow) {
-                    brandRow.style.opacity = '0';
-                    brandRow.style.transform = 'translateY(15px)';
-                    brandRow.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                    setTimeout(function () {
-                        brandRow.style.opacity = '1';
-                        brandRow.style.transform = 'translateY(0)';
-                    }, 20);
-                }
                 var gradEls = document.querySelectorAll('.hero-headline, .brand-name, .section-title-text');
                 gradEls.forEach(function (el) {
                     if (el && el.animate) {
@@ -2317,17 +2291,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         setTimeout(typeChar, 400);
-    }
-
-    var hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.opacity = '0';
-        hero.style.transform = 'scale(0.92)';
-        hero.style.transition = 'opacity 1s ease, transform 1s ease';
-        setTimeout(function () {
-            hero.style.opacity = '1';
-            hero.style.transform = 'scale(1)';
-        }, 100);
     }
 
     var logoText = document.querySelector('.logo-text');
@@ -2378,14 +2341,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function revealElement(el) {
         if (el.classList.contains('animate-in')) return;
-        var a = getAnim(el);
-        el.style.transition = 'none';
-        el.style.transform = a.from;
-        el.style.opacity = '0';
-        void el.offsetWidth;
-        el.style.transition = 'opacity ' + a.dur + 'ms ' + a.ease + ', transform ' + a.dur + 'ms ' + a.ease;
-        el.style.opacity = '1';
-        el.style.transform = 'none';
         el.classList.add('animate-in');
     }
 

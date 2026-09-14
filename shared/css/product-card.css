@@ -823,9 +823,10 @@ body[dir="ltr"] .wishlist-btn-card {
     font-weight: 600;
 }
 
-/* Scroll Reveal */
+/* Scroll Reveal (instant - opacity animations would repaint
+   background-clip:text gradients and shift their colors) */
 .reveal {
-    opacity: 0;
+    opacity: 1;
 }
 
 .reveal.animate-in {

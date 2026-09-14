@@ -154,3 +154,20 @@
 [data-reveal="slideUpStagger"].revealed > *:nth-child(3) { transition-delay: 0.25s; }
 [data-reveal="slideUpStagger"].revealed > *:nth-child(4) { transition-delay: 0.35s; }
 [data-reveal="slideUpStagger"].revealed > *:nth-child(5) { transition-delay: 0.45s; }
+
+/* ═══════════════════════════════════════════════════════════════
+   Color-stability override: ANY opacity/transform/filter/clip-path
+   animation breaks background-clip:text gradient colors (repaint
+   shifts the animated gradient). Force instant appearance instead.
+   ═══════════════════════════════════════════════════════════════ */
+[data-reveal],
+[data-reveal] > *,
+[data-reveal].revealed,
+[data-reveal].revealed > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    animation: none !important;
+    transition: none !important;
+}

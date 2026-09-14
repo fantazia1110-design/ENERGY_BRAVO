@@ -119,10 +119,6 @@ nav {
     animation: textGradientShift 5s ease-in-out infinite;
 }
 
-.logo-text:hover {
-    filter: brightness(1.25);
-}
-
 @keyframes textGradientShift {
 
     0%,
