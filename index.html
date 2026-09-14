@@ -74,7 +74,7 @@
     cursor: default;
 }
 .hero-headline.typing-done:hover {
-    transform: scale(1.05) perspective(1000px) rotateX(10deg);
+    transform: scale(1.05);
 }
 
 /* تم حذف الأنيميشن القديم للـ h1 لضمان عمل الآلة الكاتبة بوضوح وبدون تداخل */
@@ -188,6 +188,8 @@ h1 {
 
 .brand-name {
     display: inline-block;
+    white-space: nowrap;
+    flex-shrink: 0;
     letter-spacing: 0.25em;
     background: linear-gradient(135deg, #9333ea 0%, #f59e0b 50%, #9333ea 100%);
     background-size: 300% 100%;
@@ -204,6 +206,7 @@ h1 {
 .brand-emoji {
     display: inline-block;
     line-height: 1;
+    flex-shrink: 0;
     transition: transform 0.3s ease;
 }
 .brand-emoji:hover {

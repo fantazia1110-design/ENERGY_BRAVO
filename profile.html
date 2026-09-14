@@ -43,7 +43,7 @@
         .section-title { display: flex; align-items: center; justify-content: center; font-weight: 900; text-align: center; margin-bottom: 25px; position: relative; cursor: default; }
         .section-title > span { display: inline-block; white-space: nowrap; background: linear-gradient(135deg, #9333ea 0%, #f59e0b 50%, #9333ea 100%); background-size: 300% 100%; background-position: 0% 50%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: textGradientShift 5s ease-in-out infinite !important; transition: transform 0.3s ease; }
         .section-title > span .icon-natural { background: none !important; -webkit-text-fill-color: initial !important; font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji" !important; display: inline-block; }
-        .section-title:hover > span { transform: scale(1.05) perspective(1000px) rotateX(10deg) !important; }
+        .section-title:hover > span { transform: scale(1.05) !important; }
         .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
         .modal-overlay.active { display: flex; }
         .modal-box { background: var(--card-bg); border: 2px solid var(--border-color); border-radius: 20px; width: 90%; max-width: 420px; padding: 30px; box-shadow: 0 25px 80px rgba(0,0,0,0.6); animation: modalIn 0.3s ease; }
