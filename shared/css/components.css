@@ -40,7 +40,7 @@
 }
 
 .page-hero-wrapper .hero-headline:hover {
-    transform: scale(1.05) perspective(1000px) rotateX(10deg);
+    transform: scale(1.05);
 }
 
 /* Brand row */
