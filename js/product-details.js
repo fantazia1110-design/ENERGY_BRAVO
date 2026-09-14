@@ -232,7 +232,7 @@ function displayProduct() {
 
     // Update page title
     document.getElementById('productTitle').textContent = _pdText('title');
-    document.title = `${_pdText('title')} - BRAVO Store`;
+    document.title = `${_pdText('title')} - ENERGY BRAVO Store`;
     
     // Update breadcrumb
     const breadcrumbProduct = document.getElementById('breadcrumbProduct');
@@ -934,7 +934,7 @@ window.addToWishlist = async function(event) {
 // ==================== SHARE FUNCTIONS ====================
 window.shareProduct = function() {
     const url = window.location.href;
-    const text = `${_pdText('title')} - BRAVO Store`;
+    const text = `${_pdText('title')} - ENERGY BRAVO Store`;
     
     if (navigator.share) {
         navigator.share({

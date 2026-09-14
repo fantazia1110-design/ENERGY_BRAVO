@@ -1,4 +1,4 @@
-// ==================== BRAVO STORE - COMPLETE APPLICATION ====================
+// ==================== ENERGY BRAVO STORE - COMPLETE APPLICATION ====================
 // All-in-one JavaScript file with FULL Admin Login System
 // ✅ Enhanced: Cart, Wishlist, Ratings, Discounts, Badges, Quick View
 
@@ -2248,6 +2248,11 @@ async function getCheckoutOrderData() {
             checkoutFormEl._bound = true;
             checkoutFormEl.addEventListener('submit', handleCheckoutSubmit);
         }
+        ['customerName', 'customerEmail', 'customerPhone'].forEach(function (cid) {
+            var fx = document.getElementById(cid);
+            if (fx && !fx._bcv) { fx._bcv = true; fx.addEventListener('input', checkCheckoutFormValidity); fx.addEventListener('change', checkCheckoutFormValidity); }
+        });
+        checkCheckoutFormValidity();
 
         const u = new URLSearchParams(window.location.search);
 
@@ -2595,6 +2600,7 @@ function selectPaymentMethod(key) {
         const cs = document.getElementById('customerInfoSection'); if (cs) cs.style.display = 'block';
         const s2 = document.getElementById('step2'); if (s2) s2.classList.add('active');
         setTimeout(() => { d.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 300);
+        checkCheckoutFormValidity();
         return;
     }
 
@@ -2617,6 +2623,7 @@ function selectPaymentMethod(key) {
     const cs = document.getElementById('customerInfoSection'); if (cs) cs.style.display = 'block';
     const s2 = document.getElementById('step2'); if (s2) s2.classList.add('active');
     setTimeout(() => { d.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 300);
+    checkCheckoutFormValidity();
 }
 
 function copyToClipboard(text, btn) { if (!btn) btn = event?.currentTarget; var ckT = _ckI18n(currentLang); const doCopy = function(t) { if (btn) { const o = btn.innerHTML; btn.innerHTML = '<i class="fas fa-check"></i>'; btn.style.background = 'linear-gradient(135deg,#10b981,#059669)'; setTimeout(() => { btn.innerHTML = o; btn.style.background = ''; }, 2000); } showToast(ckT.copied, text, 'success'); }; try { navigator.clipboard.writeText(text).then(doCopy).catch(function() { fallbackCopy(text, btn); }); } catch(e) { fallbackCopy(text, btn); } } function fallbackCopy(text, btn) { var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); var ckT2 = _ckI18n(currentLang); try { document.execCommand('copy'); if (btn) { const o = btn.innerHTML; btn.innerHTML = '<i class="fas fa-check"></i>'; btn.style.background = 'linear-gradient(135deg,#10b981,#059669)'; setTimeout(() => { btn.innerHTML = o; btn.style.background = ''; }, 2000); } showToast(ckT2.copied, text, 'success'); } catch(e) { alert(ckT2.copyFailed); } document.body.removeChild(ta); }
@@ -2964,19 +2971,31 @@ async function _translateLinesArTo(lines, targetLang) {
 // ==================== EASYKASH GATEWAY CHECKOUT ====================
 let _easykashInProgress = false;
 async function startEasyKashCheckout() {
-    if (_easykashInProgress) return;
+    if (_easykashInProgress) {
+        const _m = document.getElementById('easykashCheckoutMsg');
+        if (_m) { _m.textContent = currentLang === 'ar' ? 'جاري معالجة طلبك، انتظر قليلاً...' : currentLang === 'en' ? 'Processing your order, please wait...' : 'Traitement en cours, veuillez patienter...'; _m.style.color = '#f59e0b'; }
+        return;
+    }
     _easykashInProgress = true;
     try {
         await _startEasyKashCheckoutInner();
     } finally {
-        setTimeout(() => { _easykashInProgress = false; }, 15000);
+        _easykashInProgress = false;
     }
 }
 window.startEasyKashCheckout = startEasyKashCheckout;
 
 async function _startEasyKashCheckoutInner() {
-    const msg = document.getElementById('easykashCheckoutMsg');
-    const setMsg = (t, isErr) => { if (msg) { msg.textContent = t; if (isErr) msg.style.color = '#ef4444'; else msg.style.color = '#10b981'; } };
+    let msg = document.getElementById('easykashCheckoutMsg');
+    if (!msg) {
+        msg = document.createElement('div');
+        msg.id = 'easykashCheckoutMsg';
+        msg.className = 'checkout-status-msg';
+        const btn = document.getElementById('submitBtn');
+        if (btn && btn.parentNode) btn.parentNode.appendChild(msg);
+        else document.body.appendChild(msg);
+    }
+    const setMsg = (t, isErr) => { if (msg) { msg.textContent = t; msg.style.color = isErr ? '#ef4444' : '#10b981'; } };
     try {
         if (!checkoutOrderData) throw new Error(currentLang === 'ar' ? 'لا توجد بيانات طلب' : 'No order data');
         const name = document.getElementById('customerName')?.value.trim();
@@ -3008,7 +3027,9 @@ async function _startEasyKashCheckoutInner() {
         });
         const data = await res.json();
         if (!res.ok || !data.redirectUrl) {
-            throw new Error(data.error || data.details?.message || (currentLang === 'ar' ? 'تعذر إنشاء جلسة الدفع' : 'Failed to create payment session'));
+            const emsg = data.error || data.details?.[0]?.message || (currentLang === 'ar' ? 'تعذر إنشاء جلسة الدفع' : 'Failed to create payment session');
+            setMsg(emsg, true);
+            throw new Error(emsg);
         }
         // إنشاء الطلب محلياً وفايربيز بحالة pending (يُفعل تلقائياً عبر callback)
         try {
@@ -5856,7 +5877,7 @@ window.generateInvoiceHTML = function(order, id) {
         digitalProduct: _invLang === 'ar' ? 'منتج رقمي' : _invLang === 'en' ? 'Digital Product' : 'Produit numérique',
         subtotal: _invLang === 'ar' ? 'المجموع الفرعي:' : _invLang === 'en' ? 'Subtotal:' : 'Sous-total:',
         discount: _invLang === 'ar' ? 'الخصم:' : _invLang === 'en' ? 'Discount:' : 'Remise:',
-        thankYou: _invLang === 'ar' ? 'شكراً لتسوقك من متجر BRAVO! نحن نقدر ثقتك بنا.' : _invLang === 'en' ? 'Thank you for shopping at BRAVO! We appreciate your trust.' : 'Merci d\'avoir acheté chez BRAVO! Nous apprécions votre confiance.',
+        thankYou: _invLang === 'ar' ? 'شكراً لتسوقك من متجر ENERGY BRAVO! نحن نقدر ثقتك بنا.' : _invLang === 'en' ? 'Thank you for shopping at ENERGY BRAVO! We appreciate your trust.' : 'Merci d\'avoir acheté chez ENERGY BRAVO! Nous apprécions votre confiance.',
         locale: _invLang === 'ar' ? 'ar-EG' : _invLang === 'en' ? 'en-US' : 'fr-FR'
     };
 
@@ -5898,8 +5919,8 @@ window.generateInvoiceHTML = function(order, id) {
         <div class="invoice-box">
             <div class="header">
                 <div class="brand">
-                    <img src="https://i.ibb.co/7tKdRmfC/68-1.png" alt="BRAVO">
-                    <h1>BRAVO Store</h1>
+                    <img src="https://i.ibb.co/7tKdRmfC/68-1.png" alt="ENERGY BRAVO">
+                    <h1>ENERGY BRAVO Store</h1>
                 </div>
                 <div class="invoice-details" dir="ltr">
                     <h2>${_invI18n.invoice}</h2>
@@ -8372,7 +8393,7 @@ function initDashboardCharts(orders) {
 // VERSION: v126 - Jul 07 2026
 // ==================== INITIALIZE APPLICATION ====================
 async function initializeApp() {
-    console.log('🚀 Initializing BRAVO Store...', { firebaseDB: !!window.firebaseDB, country: userCountry, _countryFromIP: window._countryFromIP });
+    console.log('🚀 Initializing ENERGY BRAVO Store...', { firebaseDB: !!window.firebaseDB, country: userCountry, _countryFromIP: window._countryFromIP });
     history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
     initializeThemeAndLanguage();
@@ -8399,7 +8420,7 @@ async function initializeApp() {
         initAddProductForm();
         initEditForms();
         renderAllSuggestionChips();
-        console.log('✅ BRAVO Admin initialized');
+        console.log('✅ ENERGY BRAVO Admin initialized');
         return;
     }
 
@@ -8658,7 +8679,7 @@ async function initializeApp() {
     if (statsBar) { const obs = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { animateCounters(); obs.unobserve(entry.target); } }); }, { threshold: 0.3 }); obs.observe(statsBar); }
     hideLoadingScreen();
     setupRouter();
-    console.log('✅ BRAVO Store initialized');
+    console.log('✅ ENERGY BRAVO Store initialized');
 }
 
 // ==================== PAGE CONTROLLERS (UNIFIED SYSTEM) ====================
