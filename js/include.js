@@ -88,14 +88,18 @@
 
     function filterPolicyLinks(container){
         if(!container) return;
-        container.querySelectorAll('a[role="menuitem"]').forEach(a => {
+        container.querySelectorAll('a[role="menuitem"], .pages-link').forEach(a => {
             const href = a.getAttribute('href');
             if(!href) return;
+            
+            // حماية العناصر في القائمة الجانبية
+            if (a.classList.contains('pages-toggle') || a.closest('.pages-submenu')) return; 
+
             const hrefPage = href.split('?')[0].replace(/\.html?$/i, '').toLowerCase();
             if(policyPages.indexOf(hrefPage) !== -1){
                 if(hrefPage === currentPage) return;
-                const li = a.closest('li');
-                if(li) li.remove(); else a.remove();
+                const li = a.closest('li') || a.parentElement;
+                if(li && !li.classList.contains('pages-submenu')) li.remove(); 
             }
         });
     }
