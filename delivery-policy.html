@@ -3,31 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-ar="طلباتي - ENERGY BRAVO Store" data-en="My Orders - ENERGY BRAVO Store" data-fr="Mes commandes - ENERGY BRAVO Store">طلباتي - ENERGY BRAVO Store</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title data-ar="سياسة التسليم - ENERGY BRAVO Store" data-en="Delivery Policy - ENERGY BRAVO Store" data-fr="Politique de livraison - ENERGY BRAVO Store">سياسة التسليم - ENERGY BRAVO Store</title>
+
+    <meta name="description" data-ar="تعرف على كيفية تسليم المنتجات الرقمية من ENERGY BRAVO: التسليم الإلكتروني بعد تأكيد الدفع، وسيلة التسليم، التوقيت حسب المنتج، والدعم عند مواجهة مشاكل الوصول" data-en="Learn how ENERGY BRAVO delivers digital products: electronic delivery after payment confirmation, delivery method, timing by product, and support for access issues" data-fr="Découvrez comment ENERGY BRAVO livre les produits numériques : livraison électronique après confirmation du paiement, mode de livraison, délais selon le produit et assistance en cas de problème d'accès" content="تعرف على كيفية تسليم المنتجات الرقمية من ENERGY BRAVO: التسليم الإلكتروني بعد تأكيد الدفع، وسيلة التسليم، التوقيت حسب المنتج، والدعم عند مواجهة مشاكل الوصول">
+    <meta name="keywords" content="ENERGY BRAVO, سياسة التسليم, delivery policy, تسليم رقمي, digital delivery, منتجات رقمية">
+    <meta name="author" content="ENERGY BRAVO">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" data-ar="سياسة التسليم - ENERGY BRAVO" data-en="Delivery Policy - ENERGY BRAVO" data-fr="Politique de livraison - ENERGY BRAVO" content="سياسة التسليم - ENERGY BRAVO">
+    <meta property="og:description" data-ar="التسليم الإلكتروني للمنتجات الرقمية بعد تأكيد الدفع" data-en="Electronic delivery of digital products after payment confirmation" data-fr="Livraison électronique des produits numériques après confirmation du paiement" content="التسليم الإلكتروني للمنتجات الرقمية بعد تأكيد الدفع">
+    <meta property="og:site_name" content="ENERGY BRAVO">
+    <meta property="og:image" content="https://i.ibb.co/7tKdRmfC/68-1.png">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/7tKdRmfC/68-1.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="apple-touch-icon" href="https://i.ibb.co/7tKdRmfC/68-1.png">
+    <meta name="theme-color" content="#9333ea">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Modular CSS -->
     <link rel="stylesheet" href="shared/css/global.css?v=15">
     <link rel="stylesheet" href="shared/css/toast.css?v=5">
     <link rel="stylesheet" href="shared/css/header.css?v=37">
     <link rel="stylesheet" href="shared/css/footer.css?v=16">
     <link rel="stylesheet" href="shared/css/responsive.css?v=16">
     <link rel="stylesheet" href="shared/css/components.css?v=23">
-    <link rel="stylesheet" href="shared/css/product-card.css?v=15">
-    <link rel="stylesheet" href="css/orders.css?v=74">
-    <style>
-        .order-card[data-status="pending"] > .order-card-inner { background:linear-gradient(135deg,rgba(249,115,22,0.3),rgba(234,88,12,0.2)); border:3px solid #f59e0b; animation:orderPendingBorder 2.5s ease-in-out infinite; }
-        @keyframes orderPendingBorder { 0%,100%{border-color:#8b5cf6;box-shadow:0 0 18px rgba(139,92,246,0.3)} 50%{border-color:#f59e0b;box-shadow:0 0 30px rgba(245,158,11,0.4)} }
-        .order-card[data-status="confirmed"] > .order-card-inner { background:linear-gradient(135deg,#D1FAE5,#6EE7B7) !important; border-color:#10b981 !important; }
-        .order-card[data-status="rejected"] > .order-card-inner { background:linear-gradient(135deg,#FEE2E2,#FCA5A5) !important; border-color:#ef4444 !important; }
-    </style>
+    <link rel="stylesheet" href="shared/css/reveal.css?v=3">
+    <link rel="stylesheet" href="shared/css/quick-view.css?v=22">
+    <link rel="stylesheet" href="css/policies.css?v=8">
+
 </head>
-<body class="orders-page">
+<body class="policy-body">
+
+    <!-- Particles Background -->
     <canvas id="particles" aria-hidden="true"></canvas>
+
+    <!-- Toast Notifications -->
     <div class="toast-container" id="toastContainer" role="alert" aria-live="polite"></div>
+
+    <!-- Dropdown Overlay -->
     <div class="dropdown-overlay" id="dropdownOverlay"></div>
 
+    <!-- ==================== HEADER ==================== -->
         <header role="banner">
         <nav role="navigation" aria-label="Main Navigation">
             <!-- Logo -->
@@ -100,7 +130,7 @@
             <a href="contact.html" class="pages-link" role="menuitem"><i class="fas fa-headset"></i><span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span></a>
             <a href="terms.html" class="pages-link" role="menuitem"><i class="fas fa-file-contract"></i><span data-ar="الشروط" data-en="Terms" data-fr="Conditions">الشروط</span></a>
             <a href="refund-policy.html" class="pages-link" role="menuitem"><i class="fas fa-rotate-left"></i><span data-ar="الاسترداد" data-en="Refund Policy" data-fr="Remboursement">الاسترداد</span></a>
-            <a href="delivery-policy.html" class="pages-link" role="menuitem"><i class="fas fa-truck-fast"></i><span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span></a>
+            <a href="delivery-policy.html" class="active" aria-current="page" class="pages-link" role="menuitem"><i class="fas fa-truck-fast"></i><span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span></a>
         </div>
     </li>
 
@@ -190,7 +220,7 @@
                 </a>
             </li>
             <li role="none">
-                <a href="delivery-policy.html" role="menuitem">
+                <a href="delivery-policy.html" class="active" aria-current="page" role="menuitem">
                     <i class="fas fa-truck-fast" aria-hidden="true"></i> 
                     <span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span>
                 </a>
@@ -361,168 +391,126 @@
     </header>
 
 
-    <div class="container">
-        <div class="breadcrumb reveal">
-            <a href="index.html"><i class="fas fa-home home-icon"></i> <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span></a>
-            <i class="fas fa-chevron-left chevron"></i>
-            <span class="current" data-ar="طلباتي" data-en="Orders" data-fr="Commandes">طلباتي</span>
-        </div>
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="policy-page">
+        <div class="container">
 
-        <div class="page-hero-wrapper reveal">
-            <h1>
-                <span class="hero-headline typing-done"><span data-ar="طلباتي" data-en="My Orders" data-fr="Mes commandes">طلباتي</span> <span class="emoji">📦</span></span>
-            </h1>
-            <p class="page-subtitle" data-ar="تتبع جميع طلباتك ومشترياتك من ENERGY BRAVO Store" data-en="Track all your orders and purchases from ENERGY BRAVO Store" data-fr="Suivez toutes vos commandes et achats de ENERGY BRAVO Store">تتبع جميع طلباتك ومشترياتك من ENERGY BRAVO Store</p>
-        </div>
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home home-icon"></i> <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span></a>
+                <i class="fas fa-chevron-left chevron"></i>
+                <span class="current" data-ar="سياسة التسليم" data-en="Delivery Policy" data-fr="Politique de livraison">سياسة التسليم</span>
+            </div>
 
-        <div class="stats-row" id="statsRow">
-            <div class="stat-card card-blue">
-                <div class="stat-icon stat-icon-blue">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                <div class="stat-details">
-                    <h3 id="totalOrders">0</h3>
-                    <p data-ar="إجمالي الطلبات" data-en="Total Orders" data-fr="Total des commandes">إجمالي الطلبات</p>
-                </div>
+            <!-- Hero -->
+            <div class="page-hero-wrapper">
+                <h1>
+                    <span class="hero-headline typing-done"><span data-ar="سياسة التسليم" data-en="Delivery Policy" data-fr="Politique de livraison">سياسة التسليم</span> <span class="emoji">🚀</span></span>
+                </h1>
+                <p class="page-subtitle" data-ar="كيف تصلك منتجاتنا الرقمية فور اكتمال طلبك وبكل أمان" data-en="How our digital products reach you instantly and securely once your order is complete" data-fr="Comment nos produits numériques vous parviennent instantanément et en toute sécurité une fois votre commande finalisée">كيف تصلك منتجاتنا الرقمية فور اكتمال طلبك وبكل أمان</p>
             </div>
-            <div class="stat-card card-green">
-                <div class="stat-icon stat-icon-green">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <div class="stat-details">
-                    <h3 id="completedOrders">0</h3>
-                    <p data-ar="طلبات مكتملة" data-en="Completed" data-fr="Terminées">طلبات مكتملة</p>
-                </div>
-            </div>
-            <div class="stat-card card-amber">
-                <div class="stat-icon stat-icon-amber">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="stat-details">
-                    <h3 id="pendingOrders">0</h3>
-                    <p data-ar="قيد المراجعة" data-en="Under Review" data-fr="En cours">قيد المراجعة</p>
-                </div>
-            </div>
-            <div class="stat-card card-gradient">
-                <div class="stat-icon stat-icon-gradient">
-                    <i class="fas fa-coins"></i>
-                </div>
-                <div class="stat-details">
-                    <h3 id="totalSpent">0</h3>
-                    <p data-ar="إجمالي المشتريات" data-en="Total Spent" data-fr="Total dépensé">إجمالي المشتريات</p>
-                </div>
-            </div>
-        </div>
 
-
-        <div class="filters reveal">
-            <div class="filter-search">
-                <input type="text" id="searchInput" 
-                       data-ar-placeholder="🔍 بحث ذكي: اسم، رقم الطلب، بريد، موبايل، طريقة الدفع، السعر..." 
-                       data-en-placeholder="🔍 Smart search: name, order#, email, mobile, payment, price..." 
-                       data-fr-placeholder="🔍 Recherche: nom, commande, email, mobile, paiement, prix..."
-                       placeholder="🔍 بحث ذكي: اسم، رقم الطلب، بريد، موبايل، طريقة الدفع، السعر..." 
-                       autocomplete="off"
-                       oninput="filterUserOrdersWithSearch()">
-                <i class="fas fa-search"></i>
-            </div>
-            
-            <button class="filter-btn active" data-status="all" onclick="filterUserOrders('all')">
-                <i class="fas fa-th"></i>
-                <span data-ar="الكل" data-en="All" data-fr="Tout">الكل</span>
-            </button>
-            
-            <button class="filter-btn" data-status="pending" onclick="filterUserOrders('pending')">
+            <div class="policy-updated">
                 <i class="fas fa-clock"></i>
-                <span data-ar="قيد المراجعة" data-en="Under Review" data-fr="En cours">قيد المراجعة</span>
-            </button>
-            
-            <button class="filter-btn" data-status="completed" onclick="filterUserOrders('completed')">
-                <i class="fas fa-check-circle"></i>
-                <span data-ar="تم التأكيد" data-en="Confirmed" data-fr="Confirmée">تم التأكيد</span>
-            </button>
-            
-            <button class="filter-btn" data-status="rejected" onclick="filterUserOrders('rejected')">
-                <i class="fas fa-times-circle"></i>
-                <span data-ar="المرفوضة" data-en="Rejected" data-fr="Rejetée">المرفوضة</span>
-            </button>
-
-            <button class="sort-toggle-btn" onclick="toggleSortBar()" data-ar-title="فلتر ذكي" data-en-title="Smart Filter" data-fr-title="Filtre intelligent" title="فلتر ذكي">
-                <i class="fas fa-sliders-h"></i>
-            </button>
-        </div>
-
-        <!-- Sort Bar & Price Range -->
-        <script>function toggleSortBar(){var b=document.getElementById('sortBar'),n=document.querySelector('.sort-toggle-btn');if(!b)return;var h=b.style.display==='none'||!b.style.display;b.style.display=h?'block':'none';if(n)n.classList.toggle('active',h);try{window.filterUserOrdersWithSearch()}catch(e){}}</script>
-        <div class="sort-bar" id="sortBar" style="display: none;">
-            <div class="sort-bar-inner">
-                <div class="sort-label">
-                    <i class="fas fa-arrow-up-wide-short"></i>
-                    <span data-ar="ترتيب حسب" data-en="Sort by" data-fr="Trier par">ترتيب حسب</span>
-                </div>
-                <div class="sort-options">
-                    <button class="sort-btn active" data-sort="newest" onclick="setOrdersSort('newest')">
-                        <i class="fas fa-clock"></i> <span data-ar="الأحدث" data-en="Newest" data-fr="Plus récent">الأحدث</span>
-                    </button>
-                    <button class="sort-btn" data-sort="oldest" onclick="setOrdersSort('oldest')">
-                        <i class="fas fa-history"></i> <span data-ar="الأقدم" data-en="Oldest" data-fr="Plus ancien">الأقدم</span>
-                    </button>
-                    <button class="sort-btn" data-sort="price-asc" onclick="setOrdersSort('price-asc')">
-                        <i class="fas fa-arrow-up-1-9"></i> <span data-ar="السعر: الأقل" data-en="Price: Low" data-fr="Prix: Bas">السعر: الأقل</span>
-                    </button>
-                    <button class="sort-btn" data-sort="price-desc" onclick="setOrdersSort('price-desc')">
-                        <i class="fas fa-arrow-down-9-1"></i> <span data-ar="السعر: الأعلى" data-en="Price: High" data-fr="Prix: Élevé">السعر: الأعلى</span>
-                    </button>
-                    <button class="sort-btn" data-sort="name-asc" onclick="setOrdersSort('name-asc')">
-                        <i class="fas fa-sort-alpha-down"></i> <span>A - Z</span>
-                    </button>
-                    <button class="sort-btn" data-sort="name-desc" onclick="setOrdersSort('name-desc')">
-                        <i class="fas fa-sort-alpha-up"></i> <span>Z - A</span>
-                    </button>
-                </div>
-                <div class="sort-results" id="sortResults">
-                    <span id="resultsCount">0</span>
-                    <span data-ar=" طلب" data-en=" orders" data-fr=" commandes"> طلب</span>
-                </div>
-                <div class="sort-price-range">
-                    <span class="price-range-label"><span data-ar="السعر (جنية):" data-en="Price (EGP):" data-fr="Prix (EGP):">السعر (جنية):</span></span>
-                    <div class="price-slider-wrapper">
-                        <div class="price-slider-track"></div>
-                        <input type="range" class="price-slider" id="priceMin" min="0" max="5000" step="10" value="0" oninput="window.updatePriceRange();window.filterUserOrdersWithSearch()">
-                        <input type="range" class="price-slider price-slider-max" id="priceMax" min="0" max="5000" step="10" value="5000" oninput="window.updatePriceRange();window.filterUserOrdersWithSearch()">
-                    </div>
-                    <div class="price-input-row">
-                        <span class="price-input-label" data-ar="من" data-en="From" data-fr="De">من</span>
-                        <button class="price-step" onclick="stepPrice('min',10)" type="button">+</button>
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" class="price-input" id="priceInputMin" value="0" onchange="updatePriceFromInput(this, 'min')">
-                        <button class="price-step" onclick="stepPrice('min',-10)" type="button">-</button>
-                        <span class="price-input-label" data-ar="الى" data-en="To" data-fr="À">الى</span>
-                        <button class="price-step" onclick="stepPrice('max',10)" type="button">+</button>
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" class="price-input" id="priceInputMax" value="5000" onchange="updatePriceFromInput(this, 'max')">
-                        <button class="price-step" onclick="stepPrice('max',-10)" type="button">-</button>
-                    </div>
-                    <span class="price-range-values" id="priceRangeValues">0 – 5000 <span data-ar="جنية" data-en="EGP" data-fr="EGP">جنية</span></span>
-                </div>
+                <span data-ar="آخر تحديث" data-en="Last updated" data-fr="Dernière mise à jour">آخر تحديث</span>:
+                <span data-policy="lastUpdated">16 سبتمبر 2026</span>
             </div>
+
+            <!-- Table of Contents -->
+            <nav class="policy-toc" aria-label="Table of Contents">
+                <a href="#digital"><i class="fas fa-cloud-arrow-down"></i> <span data-ar="التسليم الرقمي" data-en="Digital Delivery" data-fr="Livraison numérique">التسليم الرقمي</span></a>
+                <a href="#after-payment"><i class="fas fa-circle-check"></i> <span data-ar="بعد تأكيد الدفع" data-en="After Payment Confirmation" data-fr="Après confirmation du paiement">بعد تأكيد الدفع</span></a>
+                <a href="#method"><i class="fas fa-paper-plane"></i> <span data-ar="وسيلة التسليم" data-en="Delivery Method" data-fr="Mode de livraison">وسيلة التسليم</span></a>
+                <a href="#timing"><i class="fas fa-hourglass-half"></i> <span data-ar="التوقيت" data-en="Timing" data-fr="Délais">التوقيت</span></a>
+                <a href="#support"><i class="fas fa-headset"></i> <span data-ar="الدعم" data-en="Support" data-fr="Assistance">الدعم</span></a>
+                <a href="#future"><i class="fas fa-box-open"></i> <span data-ar="المنتجات الفيزيائية" data-en="Physical Products" data-fr="Produits physiques">المنتجات الفيزيائية</span></a>
+            </nav>
+
+            <!-- 1. Digital Delivery -->
+            <section class="policy-card" id="digital">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-cloud-arrow-down"></i></span>
+                    <h3 data-ar="التسليم الرقمي إلكترونياً" data-en="Digital, Electronic Delivery" data-fr="Livraison numérique et électronique">التسليم الرقمي إلكترونياً</h3>
+                </div>
+                <p data-ar="جميع منتجات متجر ENERGY BRAVO رقمية وتُسلَّم إلكترونياً بالكامل؛ لا يُشحن أي منتج مادي بالبريد حالياً. التسليم يتم عبر الإنترنت مباشرة دون أي وساطة، وتُرسل وسيلة الوصول إلى المنتج فور اكتمال الطلب." data-en="All ENERGY BRAVO products are digital and delivered entirely electronically; no physical product is currently shipped by mail. Delivery happens directly online with no intermediaries, and your access to the product is sent as soon as your order is complete." data-fr="Tous les produits ENERGY BRAVO sont numériques et livrés entièrement par voie électronique ; aucun produit physique n'est actuellement expédié par courrier. La livraison se fait directement en ligne, sans intermédiaire, et votre accès au produit est envoyé dès que votre commande est finalisée.">جميع منتجات متجر ENERGY BRAVO رقمية وتُسلَّم إلكترونياً بالكامل؛ لا يُشحن أي منتج مادي بالبريد حالياً. التسليم يتم عبر الإنترنت مباشرة دون أي وساطة، وتُرسل وسيلة الوصول إلى المنتج فور اكتمال الطلب.</p>
+            </section>
+
+            <!-- 2. After Payment -->
+            <section class="policy-card" id="after-payment">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-circle-check"></i></span>
+                    <h3 data-ar="التسليم بعد تأكيد الدفع" data-en="Delivery After Payment Confirmation" data-fr="Livraison après confirmation du paiement">التسليم بعد تأكيد الدفع</h3>
+                </div>
+                <p data-ar="يبدأ تسليم المنتج فقط بعد أن يتم تأكيد الدفع بنجاح. قد يحتاج بعض طرق الدفع (مثل التحويلات) إلى مراجعة يدوية سريعة للتأكد من وصول المبلغ قبل إطلاق وسيلة الوصول إلى المنتج." data-en="Product delivery begins only after your payment is successfully confirmed. Some payment methods (such as transfers) may require a quick manual review to confirm the funds before your access is released." data-fr="La livraison du produit ne commence qu'après confirmation réussie de votre paiement. Certains moyens de paiement (comme les virements) peuvent nécessiter un examen manuel rapide pour confirmer les fonds avant la mise à disposition de l'accès.">يبدأ تسليم المنتج فقط بعد أن يتم تأكيد الدفع بنجاح. قد يحتاج بعض طرق الدفع (مثل التحويلات) إلى مراجعة يدوية سريعة للتأكد من وصول المبلغ قبل إطلاق وسيلة الوصول إلى المنتج.</p>
+            </section>
+
+            <!-- 3. Delivery Method -->
+            <section class="policy-card" id="method">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-paper-plane"></i></span>
+                    <h3 data-ar="وسيلة التسليم" data-en="Delivery Method" data-fr="Mode de livraison">وسيلة التسليم</h3>
+                </div>
+                <p data-ar="تُسلَّم المنتجات الرقمية عبر واحدة أو أكثر من الوسائل التالية، حسب نوع المنتج ونظام المتجر في وقت الشراء:" data-en="Digital products are delivered through one or more of the following methods, depending on the product type and the store's system at the time of purchase:" data-fr="Les produits numériques sont livrés via une ou plusieurs des méthodes suivantes, selon le type de produit et le système de la boutique au moment de l'achat :">تُسلَّم المنتجات الرقمية عبر واحدة أو أكثر من الوسائل التالية، حسب نوع المنتج ونظام المتجر في وقت الشراء:</p>
+                <ul class="policy-list">
+                    <li class="ok" data-ar="رابط تحميل مباشر يُرسل إليك بعد تأكيد الدفع." data-en="A direct download link sent to you after payment confirmation." data-fr="Un lien de téléchargement direct envoyé après confirmation du paiement.">رابط تحميل مباشر يُرسل إليك بعد تأكيد الدفع.</li>
+                    <li class="ok" data-ar="الوصول عبر حسابك في المتجر داخل صفحة الطلبات الخاصة بك." data-en="Access through your store account, inside your orders page." data-fr="Accès via votre compte boutique, dans votre page de commandes.">الوصول عبر حسابك في المتجر داخل صفحة الطلبات الخاصة بك.</li>
+                    <li class="ok" data-ar="إرسال تفاصيل الوصول إلى بريدك الإلكتروني المسجل في الطلب." data-en="Sending the access details to the email registered with the order." data-fr="Envoi des informations d'accès à l'e-mail enregistré avec la commande.">إرسال تفاصيل الوصول إلى بريدك الإلكتروني المسجل في الطلب.</li>
+                </ul>
+                <div class="policy-callout callout-info">
+                    <span class="policy-callout-icon"><i class="fas fa-circle-info"></i></span>
+                    <p data-ar="تأكد دائماً من صحة بريدك الإلكتروني ورقم هاتفك عند تأكيد الطلب؛ فهما وسيلة الوصول الأساسية لتسليم المنتج." data-en="Always make sure your email and phone number are correct when confirming your order; they are the primary way to deliver your product." data-fr="Assurez-vous toujours que votre e-mail et votre numéro de téléphone sont corrects lors de la confirmation de la commande ; ils sont le principal moyen de livrer votre produit.">تأكد دائماً من صحة بريدك الإلكتروني ورقم هاتفك عند تأكيد الطلب؛ فهما وسيلة الوصول الأساسية لتسليم المنتج.</p>
+                </div>
+            </section>
+
+            <!-- 4. Timing -->
+            <section class="policy-card" id="timing">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-hourglass-half"></i></span>
+                    <h3 data-ar="التوقيت حسب المنتج والدفع" data-en="Timing by Product and Payment" data-fr="Délais selon le produit et le paiement">التوقيت حسب المنتج والدفع</h3>
+                </div>
+                <p data-ar="يختلف توقيت التسليم حسب نوع المنتج وطريقة الدفع المستخدمة. معظم المنتجات الرقمية تُسلَّم فوراً بمجرد تأكيد الدفع، بينما تحتاج الطلبات المدفوعة بطرق تتطلب تحققاً يدوياً إلى وقت إضافي قصير لإتمام المراجعة وإطلاق الوصول." data-en="Delivery timing varies by product type and payment method. Most digital products are delivered instantly once payment is confirmed, while orders paid through methods requiring manual verification need a short additional time for review and access release." data-fr="Les délais de livraison varient selon le type de produit et le moyen de paiement. La plupart des produits numériques sont livrés instantanément dès confirmation du paiement, tandis que les commandes payées par des méthodes nécessitant une vérification manuelle demandent un court délai supplémentaire pour l'examen et la mise à disposition de l'accès.">يختلف توقيت التسليم حسب نوع المنتج وطريقة الدفع المستخدمة. معظم المنتجات الرقمية تُسلَّم فوراً بمجرد تأكيد الدفع، بينما تحتاج الطلبات المدفوعة بطرق تتطلب تحققاً يدوياً إلى وقت إضافي قصير لإتمام المراجعة وإطلاق الوصول.</p>
+                <p class="policy-dynamic"><i class="fas fa-bolt"></i> <span data-ar="المدة المعتادة لإتمام التسليم: " data-en="Typical delivery completion time: " data-fr="Délai habituel d'achèvement de la livraison : ">المدة المعتادة لإتمام التسليم: </span> <strong data-policy="deliveryTime" data-optional></strong></p>
+            </section>
+
+            <!-- 5. Support -->
+            <section class="policy-card" id="support">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-headset"></i></span>
+                    <h3 data-ar="الدعم عند مواجهة مشاكل الوصول" data-en="Support for Access Issues" data-fr="Assistance en cas de problème d'accès">الدعم عند مواجهة مشاكل الوصول</h3>
+                </div>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="إذا لم يصلك المنتج أو واجهت مشكلة في رابط التحميل أو الوصول خلال مدة معقولة بعد تأكيد الدفع، تواصل معنا فوراً." data-en="If you do not receive your product, or face a problem with the download link or access within a reasonable time after payment confirmation, contact us immediately." data-fr="Si vous ne recevez pas votre produit, ou si vous rencontrez un problème avec le lien de téléchargement ou l'accès dans un délai raisonnable après confirmation du paiement, contactez-nous immédiatement.">إذا لم يصلك المنتج أو واجهت مشكلة في رابط التحميل أو الوصول خلال مدة معقولة بعد تأكيد الدفع، تواصل معنا فوراً.</li>
+                    <li class="dot" data-ar="سيتحقق فريق الدعم من طلبك ويعيد إرسال وسيلة الوصول أو يصلحها في أقرب وقت ممكن." data-en="The support team will verify your order and resend or fix your access as soon as possible." data-fr="L'équipe d'assistance vérifiera votre commande et renverra ou corrigera votre accès dès que possible.">سيتحقق فريق الدعم من طلبك ويعيد إرسال وسيلة الوصول أو يصلحها في أقرب وقت ممكن.</li>
+                    <li class="dot" data-ar="دعمنا مضمون لجميع الطلبات المؤكدة؛ لن يُترك أي طلب بدون تسليم أو حل." data-en="Support is guaranteed for all confirmed orders; no order is left without delivery or a resolution." data-fr="L'assistance est garantie pour toutes les commandes confirmées ; aucune commande n'est laissée sans livraison ou sans solution.">دعمنا مضمون لجميع الطلبات المؤكدة؛ لن يُترك أي طلب بدون تسليم أو حل.</li>
+                </ul>
+            </section>
+
+            <!-- 6. Physical future -->
+            <section class="policy-card" id="future">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-box-open"></i></span>
+                    <h3 data-ar="المنتجات الفيزيائية مستقبلاً" data-en="Physical Products in the Future" data-fr="Produits physiques à l'avenir">المنتجات الفيزيائية مستقبلاً</h3>
+                </div>
+                <p data-ar="إذا عُرضت منتجات فيزيائية في المستقبل، ستُحدَّث هذه الصفحة بشروط تسليم مستقلة تناسبها (وسيلة الشحن، المدة، التكلفة، والتغطية الجغرافية)، وتُنشر بوضوح قبل إتمام أي شراء من هذا النوع. تُطبق سياسة التسليم الحالية على المنتجات الرقمية فقط." data-en="If physical products are offered in the future, this page will be updated with independent delivery terms that suit them (shipping method, duration, cost, and geographic coverage), clearly published before completing any purchase of that type. The current delivery policy applies to digital products only." data-fr="Si des produits physiques sont proposés à l'avenir, cette page sera mise à jour avec des conditions de livraison indépendantes adaptées (méthode d'expédition, durée, coût et couverture géographique), clairement publiées avant de finaliser tout achat de ce type. La présente politique de livraison ne s'applique qu'aux produits numériques.">إذا عُرضت منتجات فيزيائية في المستقبل، ستُحدَّث هذه الصفحة بشروط تسليم مستقلة تناسبها (وسيلة الشحن، المدة، التكلفة، والتغطية الجغرافية)، وتُنشر بوضوح قبل إتمام أي شراء من هذا النوع. تُطبق سياسة التسليم الحالية على المنتجات الرقمية فقط.</p>
+            </section>
+
+            <!-- Contact CTA -->
+            <section class="policy-contact-cta">
+                <h3 data-ar="لم يصلك منتجك بعد؟" data-en="Haven't Received Your Product Yet?" data-fr="Vous n'avez pas encore reçu votre produit ?">لم يصلك منتجك بعد؟</h3>
+                <p data-ar="لا تتردد في التواصل معنا؛ سنحل المشكلة في أقرب وقت ممكن." data-en="Don't hesitate to reach out; we'll resolve the issue as soon as possible." data-fr="N'hésitez pas à nous contacter ; nous résoudrons le problème dès que possible.">لا تتردد في التواصل معنا؛ سنحل المشكلة في أقرب وقت ممكن.</p>
+                <div class="policy-cta-buttons">
+                    <a class="policy-btn btn-wa" data-store-wa href="https://wa.me/201012853829"><i class="fab fa-whatsapp"></i> <span data-ar="واتساب" data-en="WhatsApp" data-fr="WhatsApp">واتساب</span></a>
+                    <a class="policy-btn btn-mail" data-store-email href="mailto:bravoenergyeg@gmail.com"><i class="fas fa-envelope"></i> <span data-ar="البريد الإلكتروني" data-en="Email" data-fr="E-mail">البريد الإلكتروني</span></a>
+                    <a class="policy-btn btn-phone" data-store-phone href="tel:+201012853829"><i class="fas fa-phone"></i> <span dir="ltr">+20 101 285 3829</span></a>
+                </div>
+            </section>
+
+            <p class="policy-legal-note" data-ar="تُطبق هذه السياسة على المنتجات الرقمية المتاحة حالياً في المتجر، وتُحدَّث تلقائياً عند أي تغيير في وسائل التسليم." data-en="This policy applies to the digital products currently available in the store and is updated automatically upon any change in delivery methods." data-fr="Cette politique s'applique aux produits numériques actuellement disponibles dans la boutique et est mise à jour automatiquement en cas de changement des modes de livraison.">تُطبق هذه السياسة على المنتجات الرقمية المتاحة حالياً في المتجر، وتُحدَّث تلقائياً عند أي تغيير في وسائل التسليم.</p>
+
         </div>
+    </main>
 
-        <div class="loading" id="loadingState">
-            <div class="spinner-wrapper" id="spinnerWrap">
-                <i class="fas fa-circle-notch fa-3x"></i>
-            </div>
-            <p data-ar="جاري تحميل الطلبات" data-en="Loading orders..." data-fr="Chargement des commandes...">جاري تحميل الطلبات</p>
-        </div>
-
-        <div class="orders-list" id="ordersList" style="display: none;"></div>
-
-        <div class="empty-cart reveal" id="emptyState" style="display: none;">
-            <div class="empty-icon">🛒</div>
-            <h3 class="empty-title" data-ar="لا يوجد طلبات حتى الآن" data-en="No orders yet" data-fr="Aucune commande">لا يوجد طلبات حتى الآن</h3>
-            <p class="empty-text" data-ar="ابدأ التسوق الآن واحصل على أفضل المنتجات الرقمية!" data-en="Start shopping now and get the best digital products!" data-fr="Commencez vos achats maintenant et obtenez les meilleurs produits numériques!">ابدأ التسوق الآن واحصل على أفضل المنتجات الرقمية!</p>
-            <a href="index.html#products" class="shop-now-btn" data-ar="تسوق الآن 🛍️" data-en="Shop Now 🛍️" data-fr="Acheter 🛍️">تسوق الآن 🛍️</a>
-        </div>
-    </div>
-
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
             <div class="container">
                 <div class="footer-content">
@@ -629,86 +617,13 @@
                 </div>
         </footer>
 
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="quick-view-modal-overlay"></div>
+
+    <button class="back-to-top" aria-label="العودة للأعلى"><i class="fas fa-chevron-up"></i></button>
+
     <script src="js/include.js?v=33"></script>
     <script src="js/app.js?v=20260813d"></script>
-    <script>initPageHero();</script>
-
-
-    <script>
-    function revealElement(el) {
-        if (el.classList.contains('animate-in')) return;
-        el.classList.add('animate-in');
-        var from, to = { opacity: 1, transform: 'none' };
-        var duration = 1100, easing = 'cubic-bezier(0.16, 1, 0.3, 1)';
-        if (el.classList.contains('filters')) {
-            from = { opacity: 0, transform: 'perspective(800px) translateY(40px) rotateX(15deg)' };
-            duration = 1000;
-        } else if (el.classList.contains('product-card')) {
-            var pi = parseInt(el.dataset.revealIndex || '0', 10) % 4;
-            var pAnims = [
-                { transform: 'perspective(800px) translateY(60px) rotateX(15deg)' },
-                { transform: 'perspective(800px) translateX(60px) rotateY(-15deg)' },
-                { transform: 'perspective(800px) translateY(60px) rotateX(15deg)' },
-                { transform: 'perspective(800px) translateX(-60px) rotateY(15deg)' }
-            ];
-            from = { opacity: 0, transform: pAnims[pi].transform };
-            duration = 1000;
-            easing = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
-        } else {
-            from = { opacity: 0, transform: 'perspective(800px) translateY(30px)' };
-        }
-        if (el.animate) {
-            el.animate([from, to], { duration: duration, fill: 'forwards', easing: easing });
-        }
-    }
-    function checkReveals() {
-        document.querySelectorAll('.reveal:not(.animate-in)').forEach(function(el) {
-            var rect = el.getBoundingClientRect();
-            var vh = window.innerHeight;
-            if (rect.top < vh && rect.bottom > 0) {
-                revealElement(el);
-            }
-        });
-    }
-    window.addEventListener('scroll', checkReveals, { passive: true });
-    setInterval(checkReveals, 500);
-    checkReveals();
-    setTimeout(checkReveals, 500);
-    setTimeout(checkReveals, 2000);
-    setTimeout(checkReveals, 5000);
-    </script>
-
-    <div id="quickViewModal" class="quick-view-modal-overlay"></div>
-<script>
-(function(){
-    var el = document.querySelector('#spinnerWrap i');
-    if (!el) return;
-    var a = 0, h = function(){ return document.getElementById('loadingState') && document.getElementById('loadingState').style.display !== 'none'; };
-    if (!h()) return;
-    var iv = setInterval(function(){
-        if (!h()) { clearInterval(iv); return; }
-        a = (a - 8) % 360;
-        el.style.transform = 'rotate(' + a + 'deg)';
-    }, 16);
-})();
-</script>
+    <script src="js/policy-data.js?v=1"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

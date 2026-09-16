@@ -20,7 +20,11 @@ body.page-pending-order::before {
 .pending-breadcrumb {
     max-width: 800px;
     margin: 90px auto 0;
-    padding: 0 20px;
+    padding: 0;
+}
+
+@media (min-width: 769px) {
+    .pending-breadcrumb { margin-top: 160px !important; }
 }
 
 .pending-container {

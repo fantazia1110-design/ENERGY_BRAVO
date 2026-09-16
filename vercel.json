@@ -24,6 +24,9 @@
     { "source": "/contact", "destination": "/contact.html" },
     { "source": "/download", "destination": "/download.html" },
     { "source": "/pending", "destination": "/pending-order.html" },
+    { "source": "/refund-policy", "destination": "/refund-policy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/delivery-policy", "destination": "/delivery-policy.html" },
     { "source": "/404", "destination": "/404.html" }
   ]
 }

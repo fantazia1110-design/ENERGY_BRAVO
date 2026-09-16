@@ -18,8 +18,8 @@
 
     <link rel="stylesheet" href="shared/css/global.css?v=3">
     <link rel="stylesheet" href="shared/css/toast.css?v=5">
-    <link rel="stylesheet" href="shared/css/header.css?v=36">
-    <link rel="stylesheet" href="shared/css/footer.css?v=10">
+    <link rel="stylesheet" href="shared/css/header.css?v=37">
+    <link rel="stylesheet" href="shared/css/footer.css?v=16">
     <link rel="stylesheet" href="shared/css/responsive.css?v=16">
     <link rel="stylesheet" href="css/404.css?v=15">
 </head>
@@ -30,161 +30,338 @@
     <div class="toast-container" id="toastContainer" role="alert" aria-live="polite"></div>
     <div class="dropdown-overlay" id="dropdownOverlay"></div>
 
-    <header role="banner" style="visibility:hidden;">
+        <header role="banner">
         <nav role="navigation" aria-label="Main Navigation">
+            <!-- Logo -->
             <a href="index.html" class="logo" aria-label="ENERGY BRAVO Home">
                 <img src="https://i.ibb.co/7tKdRmfC/68-1.png" alt="ENERGY BRAVO Logo" class="logo-img" width="55" height="55">
                 <span class="logo-text">ENERGY BRAVO</span>
             </a>
+            
             <ul class="nav-menu" id="navMenu" role="menubar">
-                <!-- Mobile: divider -->
-                <li class="nav-menu-divider" role="separator"><span data-ar="الحساب" data-en="Account" data-fr="Compte">الحساب</span></li>
-                <!-- Mobile: حسابي (logged in only) -->
-                <li class="mobile-action-item logged-in-only" id="accountMobile" style="display:none;" role="none">
-                    <a class="mobile-action-btn" href="profile.html">
-                        <i class="fas fa-user"></i>
-                        <span data-ar="حسابي" data-en="My Account" data-fr="Mon Compte">حسابي</span>
-                    </a>
-                </li>
-                <li class="mobile-action-item logged-in-only" id="switchAccountMobile" style="display:none;" role="none">
-                    <a class="mobile-action-btn" href="javascript:handleSwitchAccount()">
-                        <i class="fas fa-exchange-alt"></i>
-                        <span data-ar="تبديل الحساب" data-en="Switch Account" data-fr="Changer de compte">تبديل الحساب</span>
-                    </a>
-                </li>
-                <li class="mobile-action-item logged-in-only" id="logoutMobile" style="display:none;" role="none">
-                    <a class="mobile-action-btn" href="javascript:handleLogout()">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span data-ar="تسجيل الخروج" data-en="Logout" data-fr="D&#233;connexion">تسجيل الخروج</span>
-                    </a>
-                </li>
-                <!-- Mobile: تسجيل الدخول (guest only) -->
-                <li class="mobile-action-item guest-only" id="loginMobile" role="none">
-                    <a class="mobile-action-btn" href="auth.html">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span data-ar="تسجيل الدخول" data-en="Login" data-fr="Connexion">تسجيل الدخول</span>
-                    </a>
-                </li>
-                <li class="mobile-action-item guest-only" id="registerMobile" role="none">
-                    <a class="mobile-action-btn" href="auth.html#register">
-                        <i class="fas fa-user-plus"></i>
-                        <span data-ar="إنشاء حساب" data-en="Register" data-fr="S'inscrire">إنشاء حساب</span>
-                    </a>
-                </li>
-                <!-- Mobile: طلباتي -->
-                <li class="mobile-action-item" role="none">
-                    <a class="mobile-action-btn" href="orders.html">
-                        <i class="fas fa-box"></i>
-                        <span data-ar="طلباتي" data-en="My Orders" data-fr="Mes commandes">طلباتي</span>
-                    </a>
-                </li>
-                <!-- Mobile: divider -->
-                <li class="nav-menu-divider" role="separator"><span data-ar="الصفحات" data-en="Pages" data-fr="Pages">الصفحات</span></li>
-                <!-- الرئيسية -->
-                <li role="none">
-                    <a href="index.html" role="menuitem">
-                        <i class="fas fa-house-chimney" aria-hidden="true"></i>
-                        <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span>
-                    </a>
-                </li>
-                <!-- Conditional -->
-                <li class="conditional-nav-item nav-item-wishlist" data-page="wishlist.html" style="display:none;">
-                    <a href="wishlist.html" role="menuitem">
-                        <i class="fas fa-heart"></i>
-                        <span data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
-                        <span class="action-badge" id="wishlistBadge">0</span>
-                    </a>
-                </li>
-                <li class="conditional-nav-item nav-item-cart" data-page="cart.html" style="display:none;">
-                    <a href="cart.html" role="menuitem">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
-                        <span class="action-badge" id="cartBadge">0</span>
-                    </a>
-                </li>
-                <li class="conditional-nav-item nav-item-checkout" data-page="checkout.html" style="display:none;">
-                    <a href="checkout.html" role="menuitem">
-                        <i class="fas fa-credit-card"></i>
-                        <span data-ar="الدفع" data-en="Checkout" data-fr="Paiement">الدفع</span>
-                    </a>
-                </li>
-                <li class="conditional-nav-item nav-item-profile" data-page="profile.html" style="display:none;">
-                    <a href="profile.html" role="menuitem">
-                        <i class="fas fa-user"></i>
-                        <span data-ar="حسابي" data-en="My Account" data-fr="Mon Compte">حسابي</span>
-                    </a>
-                </li>
-                <li class="conditional-nav-item nav-item-orders" data-page="orders.html" style="display:none;">
-                    <a href="orders.html" role="menuitem">
-                        <i class="fas fa-box"></i>
-                        <span data-ar="طلباتي" data-en="My Orders" data-fr="Mes commandes">طلباتي</span>
-                        <span class="action-badge" id="ordersBadge">0</span>
-                    </a>
-                </li>
-                <!-- المنتجات -->
-                <li role="none">
-                    <a href="products.html" role="menuitem">
-                        <i class="fas fa-store" aria-hidden="true"></i>
-                        <span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span>
-                    </a>
-                </li>
-                <!-- من نحن -->
-                <li role="none">
-                    <a href="about.html" role="menuitem">
-                        <i class="fas fa-users-gear" aria-hidden="true"></i>
-                        <span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span>
-                    </a>
-                </li>
-                <!-- تواصل معنا -->
-                <li role="none">
-                    <a href="contact.html" role="menuitem">
-                        <i class="fas fa-headset" aria-hidden="true"></i>
-                        <span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span>
-                    </a>
-                </li>
-                <!-- Mobile: divider -->
-                <li class="nav-menu-divider" role="separator"><span data-ar="التسوق" data-en="Shopping" data-fr="Achats">التسوق</span></li>
-                <!-- Mobile: wishlist -->
-                <li class="mobile-action-item" role="none">
-                    <a class="mobile-action-btn" href="wishlist.html">
-                        <i class="fas fa-heart"></i>
-                        <span data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
-                        <span class="action-badge" id="wishlistBadgeMobile">0</span>
-                    </a>
-                </li>
-                <!-- Mobile: cart -->
-                <li class="mobile-action-item" role="none">
-                    <a class="mobile-action-btn" href="cart.html">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
-                        <span class="action-badge" id="cartBadgeMobile">0</span>
-                    </a>
-                </li>
-                <!-- Mobile: language -->
-                <li class="nav-menu-divider" role="separator"><span data-ar="اللغة" data-en="Language" data-fr="Langue">اللغة</span></li>
-                <li class="mobile-action-item" role="none">
-                    <a class="mobile-action-btn" href="javascript:toggleLanguage()">
-                        <i class="fas fa-globe"></i>
-                        <span id="mobileLangText"><span class="flag-icon">🇪🇬</span> <span data-ar="العربية" data-en="English" data-fr="Français">العربية</span></span>
-                    </a>
-                </li>
-            </ul>
+    
+    <!-- Mobile: divider -->
+    <li class="nav-menu-divider" role="separator"><span data-ar="الحساب" data-en="Account" data-fr="Compte">الحساب</span></li>
+
+    <!-- Mobile: حسابي (logged in) -->
+    <li class="mobile-action-item logged-in-only" id="accountMobile" style="display:none;" role="none">
+        <a class="mobile-action-btn" href="profile.html">
+            <i class="fas fa-user"></i>
+            <span data-ar="حسابي" data-en="My Account" data-fr="Mon Compte">حسابي</span>
+        </a>
+    </li>
+    <li class="mobile-action-item logged-in-only" id="switchAccountMobile" style="display:none;" role="none">
+        <a class="mobile-action-btn" href="javascript:handleSwitchAccount()">
+            <i class="fas fa-exchange-alt"></i>
+            <span data-ar="تبديل الحساب" data-en="Switch Account" data-fr="Changer de compte">تبديل الحساب</span>
+        </a>
+    </li>
+    <li class="mobile-action-item logged-in-only" id="logoutMobile" style="display:none;" role="none">
+        <a class="mobile-action-btn" href="javascript:handleLogout()">
+            <span class="logout-icon-svg" style="width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:rgba(239,68,68,0.1);border-radius:12px;flex-shrink:0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            </span>
+            <span data-ar="تسجيل الخروج" data-en="Logout" data-fr="Déconnexion">تسجيل الخروج</span>
+        </a>
+    </li>
+    <!-- Mobile: تسجيل الدخول (guest) -->
+    <li class="mobile-action-item guest-only" id="loginMobile" role="none">
+        <a class="mobile-action-btn" href="auth.html">
+            <i class="fas fa-sign-in-alt"></i>
+            <span data-ar="تسجيل الدخول" data-en="Login" data-fr="Connexion">تسجيل الدخول</span>
+        </a>
+    </li>
+    <li class="mobile-action-item guest-only" id="registerMobile" role="none">
+        <a class="mobile-action-btn" href="auth.html#register">
+            <i class="fas fa-user-plus"></i>
+            <span data-ar="إنشاء حساب" data-en="Register" data-fr="S'inscrire">إنشاء حساب</span>
+        </a>
+    </li>
+
+    <!-- Mobile: طلباتي -->
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn" href="orders.html">
+            <i class="fas fa-box"></i>
+            <span data-ar="طلباتي" data-en="My Orders" data-fr="Mes commandes">طلباتي</span>
+            <span class="action-badge" id="ordersBadgeMobile">0</span>
+        </a>
+    </li>
+
+    <!-- Mobile: divider + pages toggle -->
+    <li class="nav-menu-divider" role="separator"><span data-ar="صفحات الموقع" data-en="Site Pages" data-fr="Pages du site">صفحات الموقع</span></li>
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn pages-toggle" href="javascript:void(0)" onclick="togglePagesMenu();return false">
+            <i class="fas fa-globe"></i>
+            <span data-ar="صفحات الموقع" data-en="Site Pages" data-fr="Pages du site">صفحات الموقع</span>
+            <i class="fas fa-chevron-down pages-arrow"></i>
+        </a>
+        <div class="pages-submenu" id="pagesSubmenu">
+            <a href="index.html" class="pages-link" role="menuitem"><i class="fas fa-house-chimney"></i><span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span></a>
+            <a href="products.html" class="pages-link" role="menuitem"><i class="fas fa-store"></i><span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span></a>
+            <a href="about.html" class="pages-link" role="menuitem"><i class="fas fa-users-gear"></i><span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span></a>
+            <a href="contact.html" class="pages-link" role="menuitem"><i class="fas fa-headset"></i><span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span></a>
+            <a href="terms.html" class="pages-link" role="menuitem"><i class="fas fa-file-contract"></i><span data-ar="الشروط" data-en="Terms" data-fr="Conditions">الشروط</span></a>
+            <a href="refund-policy.html" class="pages-link" role="menuitem"><i class="fas fa-rotate-left"></i><span data-ar="الاسترداد" data-en="Refund Policy" data-fr="Remboursement">الاسترداد</span></a>
+            <a href="delivery-policy.html" class="pages-link" role="menuitem"><i class="fas fa-truck-fast"></i><span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span></a>
+        </div>
+    </li>
+
+    <!-- الرئيسية -->
+            <li role="none">
+                <a href="index.html" role="menuitem">
+                    <i class="fas fa-house-chimney" aria-hidden="true"></i>
+                    <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span>
+                </a>
+            </li>
+
+            <!-- الصفحات الشرطية تظهر هنا فقط عند فتحها -->
+            <li class="conditional-nav-item nav-item-wishlist" data-page="wishlist.html" style="display:none;">
+                <a href="wishlist.html" role="menuitem">
+                    <i class="fas fa-heart"></i>
+                    <span data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
+                    <span class="action-badge" id="wishlistBadge">0</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-cart" data-page="cart.html" style="display:none;">
+                <a href="cart.html" role="menuitem">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+                    <span class="action-badge" id="cartBadge">0</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-checkout" data-page="checkout.html" style="display:none;">
+                <a href="checkout.html" role="menuitem">
+                    <i class="fas fa-credit-card"></i>
+                    <span data-ar="إتمام الشراء" data-en="Checkout" data-fr="Paiement">إتمام الشراء</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-profile" data-page="profile.html" style="display:none;">
+                <a href="profile.html" role="menuitem">
+                    <i class="fas fa-user"></i>
+                    <span data-ar="حسابي" data-en="My Account" data-fr="Mon Compte">حسابي</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-orders" data-page="orders.html" style="display:none;">
+                <a href="orders.html" role="menuitem">
+                    <i class="fas fa-box"></i>
+                    <span data-ar="طلباتي" data-en="My Orders" data-fr="Mes commandes">طلباتي</span>
+                    <span class="action-badge" id="ordersBadge">0</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-product-details" data-page="product-details.html" style="display:none;">
+                <a href="product-details.html" role="menuitem">
+                    <i class="fas fa-circle-info"></i>
+                    <span data-ar="تفاصيل المنتج" data-en="Product Details" data-fr="Détails du produit">تفاصيل المنتج</span>
+                </a>
+            </li>
+
+            <!-- المنتجات -->
+            <li role="none">
+                <a href="products.html" role="menuitem">
+                    <i class="fas fa-store" aria-hidden="true"></i> 
+                    <span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span>
+                </a>
+            </li>
+            
+            <!-- من نحن -->
+            <li role="none">
+                <a href="about.html" role="menuitem">
+                    <i class="fas fa-users-gear" aria-hidden="true"></i> 
+                    <span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span>
+                </a>
+            </li>
+            
+            <!-- تواصل معنا -->
+            <li role="none">
+                <a href="contact.html" role="menuitem">
+                    <i class="fas fa-headset" aria-hidden="true"></i> 
+                    <span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span>
+                </a>
+            </li>
+            <!-- السياسات -->
+            <li role="none">
+                <a href="terms.html" role="menuitem">
+                    <i class="fas fa-file-contract" aria-hidden="true"></i> 
+                    <span data-ar="الشروط" data-en="Terms" data-fr="Conditions">الشروط</span>
+                </a>
+            </li>
+            <li role="none">
+                <a href="refund-policy.html" role="menuitem">
+                    <i class="fas fa-rotate-left" aria-hidden="true"></i> 
+                    <span data-ar="الاسترداد" data-en="Refund Policy" data-fr="Remboursement">الاسترداد</span>
+                </a>
+            </li>
+            <li role="none">
+                <a href="delivery-policy.html" role="menuitem">
+                    <i class="fas fa-truck-fast" aria-hidden="true"></i> 
+                    <span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span>
+                </a>
+            </li>
+
+
+    <!-- Mobile: divider -->
+    <li class="nav-menu-divider" role="separator"><span data-ar="التسوق" data-en="Shopping" data-fr="Achats">التسوق</span></li>
+
+    <!-- Mobile: wishlist -->
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn" href="wishlist.html">
+            <i class="fas fa-heart"></i>
+            <span data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
+            <span class="action-badge" id="wishlistBadgeMobile">0</span>
+        </a>
+    </li>
+
+    <!-- Mobile: cart -->
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn" href="cart.html">
+            <i class="fas fa-shopping-cart"></i>
+            <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+            <span class="action-badge" id="cartBadgeMobile">0</span>
+        </a>
+    </li>
+
+</ul>
+            <!-- Action Buttons -->
             <div class="nav-actions">
                 
-                <div class="action-btn-wrapper">
-                    <button class="action-btn lang-switch" onclick="toggleLanguage()" aria-label="تبديل اللغة">
-                        <span id="langText">EN</span>
+                <!-- Language Switch -->
+                <div class="action-btn-wrapper dropdown" id="languageSection">
+                    <button class="action-btn lang-switch" onclick="toggleDropdown('languageSection')" aria-label="تبديل اللغة" aria-haspopup="true" aria-expanded="false">
+                        <span id="langText"><span class="flag-icon">🇪🇬</span></span>
                     </button>
                     <span class="action-label" data-ar="اللغة" data-en="Language" data-fr="Langue">اللغة</span>
+                    <div class="dropdown-menu" id="languageMenu" role="menu">
+                        <div class="dropdown-content lan-switch-content" id="languageContent">
+                            <button class="lang-option" onclick="switchLanguage('ar')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/eg.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">AR</strong> العربية
+                            </button>
+                            <button class="lang-option" onclick="switchLanguage('en')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/us.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">EN</strong> English
+                            </button>
+                            <button class="lang-option" onclick="switchLanguage('fr')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/fr.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">FR</strong> Français
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Wishlist -->
+                <div class="action-btn-wrapper dropdown" id="wishlistDropdown">
+                    <button class="action-btn" onclick="toggleDropdown('wishlistDropdown')" aria-label="المفضلة" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        <span class="action-badge" id="wishlistBadge" style="display: none;">0</span>
+                    </button>
+                    <span class="action-label" data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
+                    <div class="dropdown-menu" id="wishlistMenu" role="menu">
+                        <div class="dropdown-header">
+                            <h4>
+                                <i class="fas fa-heart" aria-hidden="true"></i> 
+                                <span data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
+                            </h4>
+                        </div>
+                        <div class="dropdown-content" id="wishlistContent"></div>
+                        <div class="dropdown-footer">
+                            <a href="wishlist.html" class="dropdown-btn">
+                                <span data-ar="عرض الكل" data-en="View All" data-fr="Voir tout">عرض الكل</span>
+                                <span class="emoji">❤️</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders -->
+                <div class="action-btn-wrapper desktop-only">
+                    <a href="orders.html" class="action-btn" aria-label="طلباتي">
+                        <i class="fas fa-box" aria-hidden="true"></i>
+                        <span class="action-badge" id="ordersBadge" style="display: none;">0</span>
+                    </a>
+                    <span class="action-label" data-ar="طلباتي" data-en="Orders" data-fr="Commandes">طلباتي</span>
+                </div>
+
+                <!-- Cart -->
+                <div class="action-btn-wrapper dropdown" id="cartDropdown">
+                    <button class="action-btn" onclick="toggleDropdown('cartDropdown')" aria-label="سلة التسوق" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="action-badge" id="cartBadge" style="display: none;">0</span>
+                    </button>
+                    <span class="action-label" data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+                    <div class="dropdown-menu" id="cartMenu" role="menu">
+                        <div class="dropdown-header">
+                            <h4>
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i> 
+                                <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+                            </h4>
+                        </div>
+                        <div class="dropdown-content" id="cartContent"></div>
+                        <div class="dropdown-footer">
+                            <a href="cart.html" class="dropdown-btn dropdown-btn-cart">
+                                <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+                                <span class="emoji">🛒</span>
+                            </a>
+                            <a href="checkout.html" class="dropdown-btn dropdown-btn-checkout">
+                                <span data-ar="إتمام الشراء" data-en="Checkout" data-fr="Paiement">إتمام الشراء</span>
+                                <span class="emoji">💳</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Menu -->
+                <div class="action-btn-wrapper dropdown" id="userDropdown">
+                    <button class="action-btn" onclick="toggleDropdown('userDropdown')" aria-label="حسابي" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </button>
+                    <span class="action-label" data-ar="حسابي" data-en="Account" data-fr="Compte">حسابي</span>
+                    <div class="dropdown-menu" id="userMenu" role="menu">
+                        <div class="user-info" id="userInfo">
+                            <div class="user-avatar" id="userAvatar">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4 id="userName" data-ar="زائر" data-en="Guest" data-fr="Invité">زائر</h4>
+                                <p id="userEmail" data-ar="سجل الدخول للمتابعة" data-en="Login to continue" data-fr="Connectez-vous">سجل الدخول للمتابعة</p>
+                            </div>
+                        </div>
+                        <div class="user-menu-content" id="guestMenuContent">
+                            <a href="auth.html" class="user-menu-item">
+                                <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+                                <span data-ar="تسجيل الدخول" data-en="Login" data-fr="Connexion">تسجيل الدخول</span>
+                            </a>
+                            <a href="auth.html?mode=register" class="user-menu-item">
+                                <i class="fas fa-user-plus" aria-hidden="true"></i>
+                                <span data-ar="إنشاء حساب جديد" data-en="Create Account" data-fr="Créer un compte">إنشاء حساب جديد</span>
+                            </a>
+                        </div>
+                        <div class="user-menu-content" id="loggedInMenuContent" style="display: none;"></div>
+                        <div class="dropdown-footer" id="logoutSection" style="display: none;">
+                            <button class="dropdown-btn logout-btn" onclick="handleLogout()">
+                                <span data-ar="تسجيل الخروج" data-en="Logout" data-fr="Déconnexion">تسجيل الخروج</span>
+                                <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
                 <div class="action-btn-wrapper mobile-menu-toggle">
                     <button class="action-btn" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">
                         <i class="fas fa-bars" id="mobileMenuIcon" aria-hidden="true"></i>
                     </button>
                 </div>
+
+                <!-- Admin Button -->
+                <a href="admin.html" class="admin-btn" id="adminBtn" style="display: none;" aria-label="لوحة التحكم">
+                    <i class="fas fa-user-shield" aria-hidden="true"></i>
+                    <span data-ar="لوحة التحكم" data-en="Admin" data-fr="Admin">لوحة التحكم</span>
+                </a>
+                
             </div>
         </nav>
     </header>
+
 
     <main style="margin-top: 80px !important;">
         <section class="error-section">
@@ -239,9 +416,10 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="container">
+                <div class="footer-content">
+<div class="footer-section">
+
                     <div class="footer-logo">
                         <img src="https://i.ibb.co/7tKdRmfC/68-1.png" alt="ENERGY BRAVO">
                         <span>ENERGY BRAVO</span>
@@ -253,34 +431,84 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
-                </div>
-                <div class="footer-section">
+</div>
+<div class="footer-section">
                     <h4 data-ar="روابط سريعة" data-en="Quick Links" data-fr="Liens rapides">روابط سريعة</h4>
                     <ul>
-                        <li><a href="index.html"><i class="fas fa-angle-left"></i> <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span></a></li>
-                        <li><a href="products.html"><i class="fas fa-angle-left"></i> <span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span></a></li>
-                        <li><a href="about.html"><i class="fas fa-angle-left"></i> <span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span></a></li>
-                        <li><a href="contact.html"><i class="fas fa-angle-left"></i> <span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span></a></li>
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="products.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                                <div class="footer-section">
                     <h4 data-ar="أقسام المتجر" data-en="Categories" data-fr="Catégories">أقسام المتجر</h4>
                     <ul>
+                        <!-- قسم الكتب -->
                         <li><a href="products.html?cat=books"><span class="emoji">📚</span> <span data-ar="كتب" data-en="Books" data-fr="Livres">كتب</span></a></li>
+                        
+                        <!-- قسم البرامج -->
                         <li><a href="products.html?cat=software"><span class="emoji">💻</span> <span data-ar="برامج" data-en="Software" data-fr="Logiciels">برامج</span></a></li>
+                        
+                        <!-- قسم التركيبات (الجديد) -->
                         <li><a href="products.html?cat=formulas"><span class="emoji">🧪</span> <span data-ar="تركيبات" data-en="Formulas" data-fr="Formules">تركيبات</span></a></li>
+                        
+                        <!-- قسم الكورسات (الجديد) -->
                         <li><a href="products.html?cat=courses"><span class="emoji">🎓</span> <span data-ar="كورسات" data-en="Courses" data-fr="Cours">كورسات</span></a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4 data-ar="تواصل" data-en="Contact" data-fr="Contact">تواصل</h4>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-phone"></i> <span dir="ltr">+20 101 285 3829</span></li>
-                        <li><i class="fas fa-envelope"></i> info@bravo.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span data-ar="الجيزة، مصر" data-en="Cairo, Egypt" data-fr="Le Caire, Égypte">الجيزة، مصر</span></li>
+                                <div class="footer-section">
+                    <h4 data-ar="السياسات" data-en="Policies" data-fr="Politiques">السياسات</h4>
+                    <ul>
+                        <li>
+                            <a href="refund-policy.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="سياسة الاسترداد" data-en="Refund Policy" data-fr="Politique de remboursement">سياسة الاسترداد</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="terms.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="الشروط والأحكام" data-en="Terms &amp; Conditions" data-fr="Conditions générales">الشروط والأحكام</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="delivery-policy.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="سياسة التسليم" data-en="Delivery Policy" data-fr="Politique de livraison">سياسة التسليم</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-            </div>
+                            <div class="footer-section">
+                    <h4 data-ar="تواصل" data-en="Contact" data-fr="Contact">تواصل</h4>
+<ul class="contact-info">
+
+                    <li><i class="fas fa-phone"></i> <span dir="ltr">+20 101 285 3829</span></li>
+                    <li><i class="fas fa-envelope"></i> bravoenergyeg@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span data-ar="الجيزة، مصر" data-en="Cairo, Egypt" data-fr="Le Caire, Égypte">الجيزة، مصر</span></li>
+                    </ul>
+                </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 ENERGY BRAVO Store. <span data-ar="جميع الحقوق محفوظة" data-en="All rights reserved" data-fr="Tous droits réservés">جميع الحقوق محفوظة</span>.</p>
                 <div class="payment-methods">
@@ -290,7 +518,8 @@
                 </div>
             </div>
         </div>
-    </footer>
+                </div>
+        </footer>
 
     <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
@@ -303,7 +532,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script src="js/include.js?v=25"></script>
+    <script src="js/include.js?v=33"></script>
     <script src="js/app.js?v=20260813d"></script>
 
     <script>

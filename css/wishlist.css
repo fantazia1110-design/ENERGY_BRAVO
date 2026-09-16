@@ -22,7 +22,7 @@
 
 
 /* Fixed breadcrumb position - match cart page */
-body > .container { margin-top: 0 !important; padding-top: 160px; max-width: 1600px; }
+body > .container { margin-top: 0 !important; padding-top: 160px; max-width: 1400px; }
 
 /* Page hero subtitle styling */
 .page-hero-wrapper { text-align: center; }

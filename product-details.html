@@ -31,10 +31,10 @@
     <!-- Modular CSS -->
     <link rel="stylesheet" href="shared/css/global.css?v=15">
     <link rel="stylesheet" href="shared/css/toast.css?v=5">
-    <link rel="stylesheet" href="shared/css/header.css?v=36">
-    <link rel="stylesheet" href="shared/css/footer.css?v=15">
+    <link rel="stylesheet" href="shared/css/header.css?v=37">
+    <link rel="stylesheet" href="shared/css/footer.css?v=16">
     <link rel="stylesheet" href="shared/css/responsive.css?v=16">
-    <link rel="stylesheet" href="shared/css/components.css?v=19">
+    <link rel="stylesheet" href="shared/css/components.css?v=23">
     <link rel="stylesheet" href="shared/css/quick-view.css?v=22">
     <link rel="stylesheet" href="shared/css/reveal.css?v=3">
     <link rel="stylesheet" href="shared/css/product-card.css?v=15">
@@ -52,7 +52,7 @@
     <!-- ==================== DROPDOWN OVERLAY ==================== -->
     <div class="dropdown-overlay" id="dropdownOverlay"></div>
 
-    <header role="banner" style="visibility:hidden;">
+        <header role="banner">
         <nav role="navigation" aria-label="Main Navigation">
             <!-- Logo -->
             <a href="index.html" class="logo" aria-label="ENERGY BRAVO Home">
@@ -65,11 +65,38 @@
     <!-- Mobile: divider -->
     <li class="nav-menu-divider" role="separator"><span data-ar="الحساب" data-en="Account" data-fr="Compte">الحساب</span></li>
 
-    <!-- Mobile: حسابي -->
-    <li class="mobile-action-item" role="none">
+    <!-- Mobile: حسابي (logged in) -->
+    <li class="mobile-action-item logged-in-only" id="accountMobile" style="display:none;" role="none">
         <a class="mobile-action-btn" href="profile.html">
             <i class="fas fa-user"></i>
             <span data-ar="حسابي" data-en="My Account" data-fr="Mon Compte">حسابي</span>
+        </a>
+    </li>
+    <li class="mobile-action-item logged-in-only" id="switchAccountMobile" style="display:none;" role="none">
+        <a class="mobile-action-btn" href="javascript:handleSwitchAccount()">
+            <i class="fas fa-exchange-alt"></i>
+            <span data-ar="تبديل الحساب" data-en="Switch Account" data-fr="Changer de compte">تبديل الحساب</span>
+        </a>
+    </li>
+    <li class="mobile-action-item logged-in-only" id="logoutMobile" style="display:none;" role="none">
+        <a class="mobile-action-btn" href="javascript:handleLogout()">
+            <span class="logout-icon-svg" style="width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:rgba(239,68,68,0.1);border-radius:12px;flex-shrink:0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            </span>
+            <span data-ar="تسجيل الخروج" data-en="Logout" data-fr="Déconnexion">تسجيل الخروج</span>
+        </a>
+    </li>
+    <!-- Mobile: تسجيل الدخول (guest) -->
+    <li class="mobile-action-item guest-only" id="loginMobile" role="none">
+        <a class="mobile-action-btn" href="auth.html">
+            <i class="fas fa-sign-in-alt"></i>
+            <span data-ar="تسجيل الدخول" data-en="Login" data-fr="Connexion">تسجيل الدخول</span>
+        </a>
+    </li>
+    <li class="mobile-action-item guest-only" id="registerMobile" role="none">
+        <a class="mobile-action-btn" href="auth.html#register">
+            <i class="fas fa-user-plus"></i>
+            <span data-ar="إنشاء حساب" data-en="Register" data-fr="S'inscrire">إنشاء حساب</span>
         </a>
     </li>
 
@@ -82,8 +109,24 @@
         </a>
     </li>
 
-    <!-- Mobile: divider -->
-    <li class="nav-menu-divider" role="separator"><span data-ar="الصفحات الرئيسية" data-en="Main Pages" data-fr="Pages principales">الصفحات الرئيسية</span></li>
+    <!-- Mobile: divider + pages toggle -->
+    <li class="nav-menu-divider" role="separator"><span data-ar="صفحات الموقع" data-en="Site Pages" data-fr="Pages du site">صفحات الموقع</span></li>
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn pages-toggle" href="javascript:void(0)" onclick="togglePagesMenu();return false">
+            <i class="fas fa-globe"></i>
+            <span data-ar="صفحات الموقع" data-en="Site Pages" data-fr="Pages du site">صفحات الموقع</span>
+            <i class="fas fa-chevron-down pages-arrow"></i>
+        </a>
+        <div class="pages-submenu" id="pagesSubmenu">
+            <a href="index.html" class="pages-link" role="menuitem"><i class="fas fa-house-chimney"></i><span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span></a>
+            <a href="products.html" class="pages-link" role="menuitem"><i class="fas fa-store"></i><span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span></a>
+            <a href="about.html" class="pages-link" role="menuitem"><i class="fas fa-users-gear"></i><span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span></a>
+            <a href="contact.html" class="pages-link" role="menuitem"><i class="fas fa-headset"></i><span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span></a>
+            <a href="terms.html" class="pages-link" role="menuitem"><i class="fas fa-file-contract"></i><span data-ar="الشروط" data-en="Terms" data-fr="Conditions">الشروط</span></a>
+            <a href="refund-policy.html" class="pages-link" role="menuitem"><i class="fas fa-rotate-left"></i><span data-ar="الاسترداد" data-en="Refund Policy" data-fr="Remboursement">الاسترداد</span></a>
+            <a href="delivery-policy.html" class="pages-link" role="menuitem"><i class="fas fa-truck-fast"></i><span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span></a>
+        </div>
+    </li>
 
     <!-- الرئيسية -->
             <li role="none">
@@ -128,9 +171,9 @@
                 </a>
             </li>
             <li class="conditional-nav-item nav-item-product-details" data-page="product-details.html" style="display:none;">
-                <a role="menuitem" aria-current="page" style="cursor:default;pointer-events:none;">
-                    <i class="fas fa-info-circle"></i>
-                    <span data-ar="تفاصيل المنتج" data-en="Product Details" data-fr="Détails">تفاصيل المنتج</span>
+                <a href="product-details.html" role="menuitem">
+                    <i class="fas fa-circle-info"></i>
+                    <span data-ar="تفاصيل المنتج" data-en="Product Details" data-fr="Détails du produit">تفاصيل المنتج</span>
                 </a>
             </li>
 
@@ -157,6 +200,25 @@
                     <span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span>
                 </a>
             </li>
+            <!-- السياسات -->
+            <li role="none">
+                <a href="terms.html" role="menuitem">
+                    <i class="fas fa-file-contract" aria-hidden="true"></i> 
+                    <span data-ar="الشروط" data-en="Terms" data-fr="Conditions">الشروط</span>
+                </a>
+            </li>
+            <li role="none">
+                <a href="refund-policy.html" role="menuitem">
+                    <i class="fas fa-rotate-left" aria-hidden="true"></i> 
+                    <span data-ar="الاسترداد" data-en="Refund Policy" data-fr="Remboursement">الاسترداد</span>
+                </a>
+            </li>
+            <li role="none">
+                <a href="delivery-policy.html" role="menuitem">
+                    <i class="fas fa-truck-fast" aria-hidden="true"></i> 
+                    <span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span>
+                </a>
+            </li>
 
 
     <!-- Mobile: divider -->
@@ -180,58 +242,29 @@
         </a>
     </li>
 
-    <!-- Mobile: notifications -->
-    <li class="mobile-action-item" role="none">
-        <a class="mobile-action-btn" href="javascript:toggleDropdown('notificationsDropdown')">
-            <i class="fas fa-bell"></i>
-            <span data-ar="الإشعارات" data-en="Notifications" data-fr="Notifications">الإشعارات</span>
-            <span class="action-badge" id="notificationsBadgeMobile">0</span>
-        </a>
-    </li>
-
-    <!-- Mobile: language -->
-    <li class="nav-menu-divider" role="separator"><span data-ar="اللغة" data-en="Language" data-fr="Langue">اللغة</span></li>
-    <li class="mobile-action-item" role="none">
-        <a class="mobile-action-btn" href="javascript:toggleLanguage()">
-            <i class="fas fa-globe"></i>
-            <span id="mobileLangText"><span class="flag-icon">🇪🇬</span> <span data-ar="العربية" data-en="English" data-fr="Français">العربية</span></span>
-        </a>
-    </li>
-
 </ul>
             <!-- Action Buttons -->
             <div class="nav-actions">
                 
-                <!-- Theme Toggle -->
-                
-
                 <!-- Language Switch -->
-                <div class="action-btn-wrapper">
-                    <button class="action-btn lang-switch" onclick="toggleLanguage()" aria-label="تبديل اللغة">
-                        <span id="langText">EN</span>
+                <div class="action-btn-wrapper dropdown" id="languageSection">
+                    <button class="action-btn lang-switch" onclick="toggleDropdown('languageSection')" aria-label="تبديل اللغة" aria-haspopup="true" aria-expanded="false">
+                        <span id="langText"><span class="flag-icon">🇪🇬</span></span>
                     </button>
                     <span class="action-label" data-ar="اللغة" data-en="Language" data-fr="Langue">اللغة</span>
-                </div>
-
-                <!-- Notifications -->
-                <div class="action-btn-wrapper dropdown" id="notificationsDropdown">
-                    <button class="action-btn" onclick="toggleDropdown('notificationsDropdown')" aria-label="الإشعارات" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell" aria-hidden="true"></i>
-                        <span class="action-badge" id="notificationsBadge" style="display: none;">0</span>
-                    </button>
-                    <span class="action-label" data-ar="الإشعارات" data-en="Notifications" data-fr="Notifications">الإشعارات</span>
-                    <div class="dropdown-menu" id="notificationsMenu" role="menu">
-                        <div class="dropdown-header">
-                            <h4>
-                                <i class="fas fa-bell" aria-hidden="true"></i> 
-                                <span data-ar="الإشعارات" data-en="Notifications" data-fr="Notifications">الإشعارات</span>
-                            </h4>
-                        </div>
-                        <div class="dropdown-content" id="notificationsContent"></div>
-                        <div class="dropdown-footer">
-                            <button class="dropdown-btn" onclick="markAllAsRead()">
-                                <span data-ar="تعليم الكل كمقروء" data-en="Mark all as read" data-fr="Tout lire">تعليم الكل كمقروء</span>
-                                <span class="emoji">✅</span>
+                    <div class="dropdown-menu" id="languageMenu" role="menu">
+                        <div class="dropdown-content lan-switch-content" id="languageContent">
+                            <button class="lang-option" onclick="switchLanguage('ar')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/eg.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">AR</strong> العربية
+                            </button>
+                            <button class="lang-option" onclick="switchLanguage('en')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/us.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">EN</strong> English
+                            </button>
+                            <button class="lang-option" onclick="switchLanguage('fr')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/fr.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">FR</strong> Français
                             </button>
                         </div>
                     </div>
@@ -328,7 +361,7 @@
                         <div class="dropdown-footer" id="logoutSection" style="display: none;">
                             <button class="dropdown-btn logout-btn" onclick="handleLogout()">
                                 <span data-ar="تسجيل الخروج" data-en="Logout" data-fr="Déconnexion">تسجيل الخروج</span>
-                                <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                                <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
                             </button>
                         </div>
                     </div>
@@ -350,6 +383,7 @@
             </div>
         </nav>
     </header>
+
 
     <!-- ==================== MAIN CONTENT ==================== -->
     <div class="container">
@@ -623,52 +657,99 @@
 
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="container">
+                <div class="footer-content">
+<div class="footer-section">
+
                     <div class="footer-logo">
                         <img src="https://i.ibb.co/7tKdRmfC/68-1.png" alt="ENERGY BRAVO">
                         <span>ENERGY BRAVO</span>
                     </div>
-                    <p data-ar="المنصة الأولى لتعليم الصناعات الكيميائية" data-en="The #1 Platform for Chemical Industries" data-fr="La plateforme n°1 pour les industries chimiques">المنصة الأولى لتعليم الصناعات الكيميائية</p>
+                    <p data-ar="متجر ENERGY BRAVO لتعليم صناعة المنظفات ومستحضرات التجميل والعطور" data-en="The #1 Digital Store" data-fr="La boutique numérique n°1">متجر ENERGY BRAVO لتعليم صناعة المنظفات ومستحضرات التجميل والعطور</p>
                     <div class="social-links">
-                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
-                </div>
-                
-                <div class="footer-section">
+</div>
+<div class="footer-section">
                     <h4 data-ar="روابط سريعة" data-en="Quick Links" data-fr="Liens rapides">روابط سريعة</h4>
                     <ul>
-                        <li><a href="index.html"><span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span></a></li>
-                        <li><a href="products.html"><span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span></a></li>
-                        <li><a href="about.html"><span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span></a></li>
-                        <li><a href="contact.html"><span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span></a></li>
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="products.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4 data-ar="الفئات" data-en="Categories" data-fr="Catégories">الفئات</h4>
+                                <div class="footer-section">
+                    <h4 data-ar="أقسام المتجر" data-en="Categories" data-fr="Catégories">أقسام المتجر</h4>
                     <ul>
+                        <!-- قسم الكتب -->
                         <li><a href="products.html?cat=books"><span class="emoji">📚</span> <span data-ar="كتب" data-en="Books" data-fr="Livres">كتب</span></a></li>
+                        
+                        <!-- قسم البرامج -->
                         <li><a href="products.html?cat=software"><span class="emoji">💻</span> <span data-ar="برامج" data-en="Software" data-fr="Logiciels">برامج</span></a></li>
+                        
+                        <!-- قسم التركيبات (الجديد) -->
                         <li><a href="products.html?cat=formulas"><span class="emoji">🧪</span> <span data-ar="تركيبات" data-en="Formulas" data-fr="Formules">تركيبات</span></a></li>
+                        
+                        <!-- قسم الكورسات (الجديد) -->
                         <li><a href="products.html?cat=courses"><span class="emoji">🎓</span> <span data-ar="كورسات" data-en="Courses" data-fr="Cours">كورسات</span></a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4 data-ar="تواصل" data-en="Contact" data-fr="Contact">تواصل</h4>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-phone"></i> <span dir="ltr">+20 101 285 3829</span></li>
-                        <li><i class="fas fa-envelope"></i> info@bravo.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span data-ar="القاهرة، مصر" data-en="Cairo, Egypt" data-fr="Le Caire, Égypte">القاهرة، مصر</span></li>
+                                <div class="footer-section">
+                    <h4 data-ar="السياسات" data-en="Policies" data-fr="Politiques">السياسات</h4>
+                    <ul>
+                        <li>
+                            <a href="refund-policy.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="سياسة الاسترداد" data-en="Refund Policy" data-fr="Politique de remboursement">سياسة الاسترداد</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="terms.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="الشروط والأحكام" data-en="Terms &amp; Conditions" data-fr="Conditions générales">الشروط والأحكام</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="delivery-policy.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="سياسة التسليم" data-en="Delivery Policy" data-fr="Politique de livraison">سياسة التسليم</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-            </div>
-            
+                            <div class="footer-section">
+                    <h4 data-ar="تواصل" data-en="Contact" data-fr="Contact">تواصل</h4>
+<ul class="contact-info">
+
+                    <li><i class="fas fa-phone"></i> <span dir="ltr">+20 101 285 3829</span></li>
+                    <li><i class="fas fa-envelope"></i> bravoenergyeg@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span data-ar="الجيزة، مصر" data-en="Cairo, Egypt" data-fr="Le Caire, Égypte">الجيزة، مصر</span></li>
+                    </ul>
+                </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 ENERGY BRAVO Store. <span data-ar="جميع الحقوق محفوظة" data-en="All rights reserved" data-fr="Tous droits réservés">جميع الحقوق محفوظة</span>.</p>
                 <div class="payment-methods">
@@ -678,7 +759,8 @@
                 </div>
             </div>
         </div>
-    </footer>
+                </div>
+        </footer>
 
     <!-- ==================== SCROLL TO TOP ==================== -->
     <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
@@ -694,7 +776,7 @@
     </a>
 
     <!-- ==================== MAIN JAVASCRIPT ==================== -->
-    <script src="js/include.js?v=25"></script>
+    <script src="js/include.js?v=33"></script>
     <script src="js/app.js?v=20260813d"></script>
     <script src="js/product-details.js?v=20260727cc"></script>
     <script>initPageHero();</script>

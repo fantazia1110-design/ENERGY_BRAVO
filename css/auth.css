@@ -13,7 +13,7 @@
    ║   الوصف: خلفية الصفحة والتنسيق العام                      ║
    ╚══════════════════════════════════════════════════════════════╝ */
 
-.auth-page > .container { padding: 80px 5% 0; max-width: 1200px; margin: 80px auto 0; }
+.auth-page > .container { padding: 160px 5% 0; max-width: 1400px; margin: 0 auto 0; }
 
 .auth-page .page-hero-wrapper {
     margin-bottom: 20px;
