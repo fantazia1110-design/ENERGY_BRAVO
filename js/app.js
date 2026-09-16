@@ -2619,6 +2619,9 @@ function selectPaymentMethod(key) {
     if (m.walletAddress) h += `<div class="detail-item"><span class="detail-label">Wallet:</span><div class="detail-value"><span style="font-size:0.8em;word-break:break-all">${m.walletAddress}</span><button class="copy-btn" onclick="copyToClipboard('${m.walletAddress}', this)"><i class="fas fa-copy"></i></button></div></div>`;
     if (m.redotID) h += `<div class="detail-item"><span class="detail-label">Redot ID:</span><div class="detail-value"><span>${m.redotID}</span><button class="copy-btn" onclick="copyToClipboard('${m.redotID}', this)"><i class="fas fa-copy"></i></button></div></div>`;
     if (m.qrCode && m.qrActive !== false) h += `<div style="text-align:center;margin-top:25px"><h4 style="margin-bottom:15px">${ckT.qrCode}</h4><img src="${m.qrCode}" alt="QR" class="qr-code"></div>`;
+    if (m.phoneNumber) h += `<div class="detail-item"><span class="detail-label">${ckT.phone || 'Phone:'}</span><div class="detail-value"><span dir="ltr">${m.phoneNumber}</span><button class="copy-btn" onclick="copyToClipboard('${m.phoneNumber}', this)"><i class="fas fa-copy"></i></button></div></div>`;
+    if (m.accountNumber) h += `<div class="detail-item"><span class="detail-label">${ckT.account || 'Account:'}</span><div class="detail-value"><span dir="ltr">${m.accountNumber}</span><button class="copy-btn" onclick="copyToClipboard('${m.accountNumber}', this)"><i class="fas fa-copy"></i></button></div></div>`;
+    
     h += '</div>'; d.innerHTML = h; d.classList.add('show');
     const cs = document.getElementById('customerInfoSection'); if (cs) cs.style.display = 'block';
     const s2 = document.getElementById('step2'); if (s2) s2.classList.add('active');
