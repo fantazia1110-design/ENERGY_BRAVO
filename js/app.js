@@ -293,10 +293,12 @@ const PAYMENT_FIELD_LABELS = {
     accountName: { ar: 'اسم الحساب', en: 'Account Name' },
     phoneNumber: { ar: 'رقم الهاتف', en: 'Phone Number' },
     accountNumber: { ar: 'رقم الحساب', en: 'Account Number' },
-    iban: { ar: 'IBAN الحساب', en: 'IBAN' }
+    iban: { ar: 'IBAN الحساب', en: 'IBAN' },
+    country: { ar: 'الدولة', en: 'Country' },
+    paymentId: { ar: 'المعرف', en: 'ID' }
 };
 
-const STANDARD_FIELDS = ['username', 'accountName', 'phoneNumber', 'accountNumber', 'iban'];
+const STANDARD_FIELDS = ['username', 'accountName', 'phoneNumber', 'accountNumber', 'iban', 'country', 'paymentId'];
 
 // ==================== LOGO UPLOAD ====================
 window.uploadPaymentLogo = function(fileInputId, hiddenInputId, previewId) {
@@ -2614,17 +2616,18 @@ function selectPaymentMethod(key) {
     let instList = m.instructions[currentLang] || m.instructions.en || m.instructions.ar || [];
     instList.forEach((inst, i) => { h += `<li><strong>${i + 1}.</strong> ${inst}</li>`; });
     h += '</ul><div style="margin-top:25px">';
-    if (m.receiverName) h += `<div class="detail-item detail-item-full"><span class="detail-label">${ckT.receiver}</span><div class="detail-value"><span>${m.receiverName}</span></div><button class="copy-btn copy-btn-bottom" onclick="copyToClipboard('${m.receiverName}', this)"><i class="fas fa-copy"></i></button></div>`;
-    if (m.country) h += `<div class="detail-item"><span class="detail-label">${ckT.country}</span><span class="detail-value">${m.country}</span></div>`;
-    if (m.phoneNumber) h += `<div class="detail-item"><span class="detail-label">${ckT.phone}</span><div class="detail-value"><span dir="ltr">${m.phoneNumber}</span><button class="copy-btn" onclick="copyToClipboard('${m.phoneNumber}', this)"><i class="fas fa-copy"></i></button></div></div>`;
-    if (m.email) h += `<div class="detail-item"><span class="detail-label">${ckT.email}</span><div class="detail-value"><span>${m.email}</span><button class="copy-btn" onclick="copyToClipboard('${m.email}', this)"><i class="fas fa-copy"></i></button></div></div>`;
-    if (m.accountNumber) h += `<div class="detail-item"><span class="detail-label">${ckT.account}</span><div class="detail-value"><span dir="ltr">${m.accountNumber}</span><button class="copy-btn" onclick="copyToClipboard('${m.accountNumber}', this)"><i class="fas fa-copy"></i></button></div></div>`;
-    if (m.iban) h += `<div class="detail-item"><span class="detail-label">IBAN:</span><div class="detail-value"><span dir="ltr">${m.iban}</span><button class="copy-btn" onclick="copyToClipboard('${m.iban}', this)"><i class="fas fa-copy"></i></button></div></div>`;
-    if (m.accountName) h += `<div class="detail-item detail-item-full"><span class="detail-label">${ckT.name}</span><div class="detail-value"><span>${m.accountName}</span></div><button class="copy-btn copy-btn-bottom" onclick="copyToClipboard('${m.accountName}', this)"><i class="fas fa-copy"></i></button></div>`;
-    if (m.binanceID) h += `<div class="detail-item"><span class="detail-label">Binance ID:</span><div class="detail-value"><span>${m.binanceID}</span><button class="copy-btn" onclick="copyToClipboard('${m.binanceID}', this)"><i class="fas fa-copy"></i></button></div></div>`;
-    if (m.walletAddress) h += `<div class="detail-item"><span class="detail-label">Wallet:</span><div class="detail-value"><span style="font-size:0.8em;word-break:break-all">${m.walletAddress}</span><button class="copy-btn" onclick="copyToClipboard('${m.walletAddress}', this)"><i class="fas fa-copy"></i></button></div></div>`;
-    if (m.redotID) h += `<div class="detail-item"><span class="detail-label">Redot ID:</span><div class="detail-value"><span>${m.redotID}</span><button class="copy-btn" onclick="copyToClipboard('${m.redotID}', this)"><i class="fas fa-copy"></i></button></div></div>`;
+
+    // عرض ديناميكي لجميع التفاصيل من الأدمين فقط
+    if (m.details && Array.isArray(m.details)) {
+        m.details.forEach(detail => {
+            if (detail.active !== false && detail.value) {
+                h += `<div class="detail-item detail-item-full"><span class="detail-label">${detail.labelAr || detail.key}</span><div class="detail-value"><span>${detail.value}</span><button class="copy-btn copy-btn-bottom" onclick="copyToClipboard('${detail.value}', this)"><i class="fas fa-copy"></i></button></div></div>`;
+            }
+        });
+    }
+
     if (m.qrCode && m.qrActive !== false) h += `<div style="text-align:center;margin-top:25px"><h4 style="margin-bottom:15px">${ckT.qrCode}</h4><img src="${m.qrCode}" alt="QR" class="qr-code"></div>`;
+
     if (m.accountNumber) h += `<div class="detail-item"><span class="detail-label">${ckT.account || 'Account:'}</span><div class="detail-value"><span dir="ltr">${m.accountNumber}</span><button class="copy-btn" onclick="copyToClipboard('${m.accountNumber}', this)"><i class="fas fa-copy"></i></button></div></div>`;
     
     
@@ -2633,7 +2636,7 @@ function selectPaymentMethod(key) {
         m.details.forEach(detail => {
             if (detail.active !== false && detail.value) {
                 // Skip rendering if it's a standard field already handled above
-                const standardFields = ['username', 'accountName', 'phoneNumber', 'accountNumber', 'iban', 'redotID', 'binanceID', 'walletAddress'];
+                const standardFields = ['username', 'accountName', 'phoneNumber', 'accountNumber', 'iban', 'binanceID', 'walletAddress'];
                 if (standardFields.includes(detail.key)) return;
                 h += `<div class="detail-item"><span class="detail-label">${detail.labelAr || detail.key}:</span><div class="detail-value"><span dir="ltr">${detail.value}</span><button class="copy-btn" onclick="copyToClipboard('${detail.value}', this)"><i class="fas fa-copy"></i></button></div></div>`;
             }
