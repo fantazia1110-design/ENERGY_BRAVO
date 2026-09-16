@@ -454,6 +454,10 @@ window.openEditPaymentModal = function(id) {
         });
         fieldsToRender.sort((a, b) => (a.active === false ? 1 : 0) - (b.active === false ? 1 : 0));
         fieldsToRender.forEach(f => addEditFieldRow(f.key, f.labelAr, f.value, f.active));
+        if (id === 'redotpay') {
+            const redotIDValue = m.redotID || '';
+            addEditFieldRow('redotID', 'ريدوت باي ID', redotIDValue, true);
+        }
     }
     const editModal = document.getElementById('editPaymentModal');
     editModal.classList.add('active');
@@ -515,13 +519,15 @@ window.submitEditPaymentForm = async function() {
     const qrCode = document.getElementById('editPaymentQr')?.value.trim() || '';
     const qrToggle = document.getElementById('editPaymentQrToggle');
     const qrActive = qrToggle ? qrToggle.classList.contains('active') : true;
+    const redotID = document.querySelector('#editPaymentFieldsContainer [data-field-key="redotID"]')?.value || '';
     const update = {
         name: { ar: nameAr, en: nameAr, fr: nameAr },
         logo: logo,
         qrCode: qrCode,
         qrActive: qrActive,
         instructions: { ar: instAr.length ? instAr : ['اتبع التعليمات'], en: instAr.length ? instAr : ['Follow Instructions'], fr: instAr.length ? instAr : ['Suivez les instructions'] },
-        details: details
+        details: details,
+        redotID: redotID
     };
     window.paymentMethods[id] = { ...window.paymentMethods[id], ...update };
     await DB.update(`settings/paymentMethods/${id}`, update);
