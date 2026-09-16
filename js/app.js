@@ -2542,7 +2542,7 @@ function displayCheckoutOrderSummary() {
 
 function displayPaymentMethods() {
     const grid = document.getElementById('paymentGrid'); if (!grid) return;
-    var methods = Object.keys(window.paymentMethods).length > 0 ? window.paymentMethods : PAYMENT_ACCOUNTS;
+    var methods = Object.assign({}, PAYMENT_ACCOUNTS, window.paymentMethods);
     const activeMethods = Object.entries(methods).filter(([k, m]) => m.active !== false).sort((a, b) => (a[1].order || 0) - (b[1].order || 0));
     const langFallback = function(obj) { return obj[currentLang] || obj.en || obj.ar || ''; };
     grid.innerHTML = activeMethods.map(([k, m]) => `<div class="payment-method" data-payment="${k}"><img src="${m.logo || ''}" alt="${langFallback(m.name)}" class="payment-logo"><div class="payment-name">${langFallback(m.name)}</div></div>`).join('');
