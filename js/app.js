@@ -2609,12 +2609,17 @@ function selectPaymentMethod(key) {
         return;
     }
 
+    // دالة لجلب القيمة من التفاصيل
+    const getDetailValue = (key) => {
+        return m.details?.find(d => d.key === key)?.value || '';
+    };
+
     let h = `<h2 class="section-title"><span class="section-title-text">${ckT.paymentDetails}</span><span class="emoji">📋</span></h2><ul class="instructions-list">`;
     let instList = m.instructions[currentLang] || m.instructions.en || m.instructions.ar || [];
     instList.forEach((inst, i) => { h += `<li><strong>${i + 1}.</strong> ${inst}</li>`; });
     h += '</ul><div style="margin-top:25px">';
 
-    // عرض ديناميكي لجميع التفاصيل من الأدمين فقط
+    // عرض التفاصيل من مصفوفة Details فقط
     if (m.details && Array.isArray(m.details)) {
         m.details.forEach(detail => {
             if (detail.active !== false && detail.value) {
