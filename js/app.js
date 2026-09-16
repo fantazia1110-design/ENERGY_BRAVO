@@ -295,10 +295,11 @@ const PAYMENT_FIELD_LABELS = {
     accountNumber: { ar: 'رقم الحساب', en: 'Account Number' },
     iban: { ar: 'IBAN الحساب', en: 'IBAN' },
     country: { ar: 'الدولة', en: 'Country' },
-    paymentId: { ar: 'المعرف', en: 'ID' }
+    paymentId: { ar: 'المعرف', en: 'ID' },
+    walletAddress: { ar: 'رابط المحفظة', en: 'Wallet Address' }
 };
 
-const STANDARD_FIELDS = ['username', 'accountName', 'phoneNumber', 'accountNumber', 'iban', 'country', 'paymentId'];
+const STANDARD_FIELDS = ['username', 'accountName', 'phoneNumber', 'accountNumber', 'iban', 'country', 'paymentId', 'walletAddress'];
 
 // ==================== LOGO UPLOAD ====================
 window.uploadPaymentLogo = function(fileInputId, hiddenInputId, previewId) {
