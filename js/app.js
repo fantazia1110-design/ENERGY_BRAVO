@@ -295,7 +295,7 @@ const PAYMENT_FIELD_LABELS = {
     accountNumber: { ar: 'رقم الحساب', en: 'Account Number' },
     iban: { ar: 'IBAN الحساب', en: 'IBAN' },
     country: { ar: 'الدولة', en: 'Country' },
-    paymentId: { ar: 'المعرف', en: 'ID' },
+    paymentId: { ar: 'المعرف | ID', en: 'المعرف | ID' },
     walletAddress: { ar: 'رابط المحفظة', en: 'Wallet Address' }
 };
 
@@ -457,10 +457,6 @@ window.openEditPaymentModal = function(id) {
         });
         fieldsToRender.sort((a, b) => (a.active === false ? 1 : 0) - (b.active === false ? 1 : 0));
         fieldsToRender.forEach(f => addEditFieldRow(f.key, f.labelAr, f.value, f.active));
-        if (id === 'redotpay') {
-            const redotIDValue = m.redotID || '';
-            addEditFieldRow('redotID', 'ريدوت باي ID', redotIDValue, true);
-        }
     }
     const editModal = document.getElementById('editPaymentModal');
     editModal.classList.add('active');
