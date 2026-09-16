@@ -2622,6 +2622,15 @@ function selectPaymentMethod(key) {
     if (m.phoneNumber) h += `<div class="detail-item"><span class="detail-label">${ckT.phone || 'Phone:'}</span><div class="detail-value"><span dir="ltr">${m.phoneNumber}</span><button class="copy-btn" onclick="copyToClipboard('${m.phoneNumber}', this)"><i class="fas fa-copy"></i></button></div></div>`;
     if (m.accountNumber) h += `<div class="detail-item"><span class="detail-label">${ckT.account || 'Account:'}</span><div class="detail-value"><span dir="ltr">${m.accountNumber}</span><button class="copy-btn" onclick="copyToClipboard('${m.accountNumber}', this)"><i class="fas fa-copy"></i></button></div></div>`;
     
+    
+    // إضافة عرض التفاصيل الديناميكية من الأدمين
+    if (m.details && Array.isArray(m.details)) {
+        m.details.forEach(detail => {
+            if (detail.active !== false && detail.value) {
+                h += `<div class="detail-item"><span class="detail-label">${detail.labelAr || detail.key}:</span><div class="detail-value"><span dir="ltr">${detail.value}</span><button class="copy-btn" onclick="copyToClipboard('${detail.value}', this)"><i class="fas fa-copy"></i></button></div></div>`;
+            }
+        });
+    }
     h += '</div>'; d.innerHTML = h; d.classList.add('show');
     const cs = document.getElementById('customerInfoSection'); if (cs) cs.style.display = 'block';
     const s2 = document.getElementById('step2'); if (s2) s2.classList.add('active');
