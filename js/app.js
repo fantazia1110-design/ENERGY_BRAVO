@@ -442,22 +442,16 @@ window.openEditPaymentModal = function(id) {
     const container = document.getElementById('editPaymentFieldsContainer');
     if (container) {
         container.innerHTML = '';
-        const existing = m.details || [];
-        const existingMap = {};
-        existing.forEach(d => { existingMap[d.key] = d; });
-        const fieldsToRender = STANDARD_FIELDS.map(key => {
-            const label = PAYMENT_FIELD_LABELS[key];
-            const saved = existingMap[key];
-            return {
-                key: key,
-                labelAr: label?.ar || key,
-                value: saved?.value || '',
-                active: saved && saved.value ? saved.active !== false : false
-            };
+        
+        // جلب كل التفاصيل المحفوظة في مصفوفة details
+        const savedDetails = m.details || [];
+        
+        // عرض جميع التفاصيل الموجودة في details
+        savedDetails.forEach(detail => {
+            addEditFieldRow(detail.key, detail.labelAr, detail.value, detail.active);
         });
-        fieldsToRender.sort((a, b) => (a.active === false ? 1 : 0) - (b.active === false ? 1 : 0));
-        fieldsToRender.forEach(f => addEditFieldRow(f.key, f.labelAr, f.value, f.active));
     }
+
     const editModal = document.getElementById('editPaymentModal');
     editModal.classList.add('active');
     if (!editModal.hasAttribute('data-close-outside')) {
@@ -2619,7 +2613,7 @@ function selectPaymentMethod(key) {
     instList.forEach((inst, i) => { h += `<li><strong>${i + 1}.</strong> ${inst}</li>`; });
     h += '</ul><div style="margin-top:25px">';
 
-    // عرض التفاصيل من مصفوفة Details فقط
+    // عرض التفاصيل من مصفوفة Details فقط (تم دمج كل شيء هنا)
     if (m.details && Array.isArray(m.details)) {
         m.details.forEach(detail => {
             if (detail.active !== false && detail.value) {
@@ -2630,21 +2624,8 @@ function selectPaymentMethod(key) {
 
     if (m.qrCode && m.qrActive !== false) h += `<div style="text-align:center;margin-top:25px"><h4 style="margin-bottom:15px">${ckT.qrCode}</h4><img src="${m.qrCode}" alt="QR" class="qr-code"></div>`;
 
-    if (m.accountNumber) h += `<div class="detail-item"><span class="detail-label">${ckT.account || 'Account:'}</span><div class="detail-value"><span dir="ltr">${m.accountNumber}</span><button class="copy-btn" onclick="copyToClipboard('${m.accountNumber}', this)"><i class="fas fa-copy"></i></button></div></div>`;
-    
-    
-    // إضافة عرض التفاصيل الديناميكية من الأدمين
-    if (m.details && Array.isArray(m.details)) {
-        m.details.forEach(detail => {
-            if (detail.active !== false && detail.value) {
-                // Skip rendering if it's a standard field already handled above
-                const standardFields = ['username', 'accountName', 'phoneNumber', 'accountNumber', 'iban', 'binanceID', 'walletAddress'];
-                if (standardFields.includes(detail.key)) return;
-                h += `<div class="detail-item"><span class="detail-label">${detail.labelAr || detail.key}:</span><div class="detail-value"><span dir="ltr">${detail.value}</span><button class="copy-btn" onclick="copyToClipboard('${detail.value}', this)"><i class="fas fa-copy"></i></button></div></div>`;
-            }
-        });
-    }
     h += '</div>'; d.innerHTML = h; d.classList.add('show');
+
 
     const cs = document.getElementById('customerInfoSection'); if (cs) cs.style.display = 'block';
     const s2 = document.getElementById('step2'); if (s2) s2.classList.add('active');
