@@ -10403,3 +10403,30 @@ function renderAllSuggestionChips() {
     });
 }
 
+// ==================== Policy Page Functions ====================
+
+function copyCurrentPageLink(btn) {
+    var ckT = _ckI18n(currentLang);
+    const url = window.location.href.split('#')[0]; // Remove hash for cleaner link
+    copyToClipboard(url, btn);
+}
+
+function sharePage(btn) {
+    var ckT = _ckI18n(currentLang);
+    const url = window.location.href.split('#')[0];
+    const title = document.title || (currentLang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy');
+    const text = (currentLang === 'ar' ? 'اطلع على سياسة الخصوصية لمتجر ENERGY BRAVO.' : 'Check out ENERGY BRAVO\'s Privacy Policy.');
+
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: text,
+            url: url,
+        }).then(() => console.log('✅ Shared successfully')).catch((error) => console.error('❌ Share failed', error));
+    } else {
+        // Fallback for browsers that do not support navigator.share
+        copyToClipboard(url, btn);
+        showToast(ckT.copied, (currentLang === 'ar' ? 'تم نسخ رابط الصفحة' : 'Page link copied'), 'info');
+    }
+}
+

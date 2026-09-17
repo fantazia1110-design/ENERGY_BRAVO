@@ -67,7 +67,7 @@
         }
     }
 
-    const policyPages = ['terms', 'refund-policy', 'delivery-policy'];
+    const policyPages = ['terms', 'refund-policy', 'delivery-policy', 'privacy-policy'];
 
     function applyActive(container){
         if(!container) return;

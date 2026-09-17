@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title data-ar="سياسة الخصوصية - ENERGY BRAVO Store" data-en="Privacy Policy - ENERGY BRAVO Store" data-fr="Politique de confidentialité - ENERGY BRAVO Store">سياسة الخصوصية - ENERGY BRAVO Store</title>
+
+    <meta name="description" data-ar="تعرف على كيفية جمع واستخدام وحماية بياناتك الشخصية في متجر ENERGY BRAVO بكل شفافية وأمان: البيانات التي نجمعها، كيفية استخدامها، مشاركتها، وحقوقك." data-en="Learn how ENERGY BRAVO collects, uses, and protects your personal data with full transparency and security: the data we collect, how we use it, sharing, and your rights." data-fr="Découvrez comment ENERGY BRAVO collecte, utilise et protège vos données personnelles en toute transparence et sécurité : données collectées, utilisation, partage et vos droits." content="تعرف على كيفية جمع واستخدام وحماية بياناتك الشخصية في متجر ENERGY BRAVO بكل شفافية وأمان: البيانات التي نجمعها، كيفية استخدامها، مشاركتها، وحقوقك">
+    <meta name="keywords" content="ENERGY BRAVO, سياسة الخصوصية, privacy policy, حماية البيانات, data protection, خصوصية">
+    <meta name="author" content="ENERGY BRAVO">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" data-ar="سياسة الخصوصية - ENERGY BRAVO" data-en="Privacy Policy - ENERGY BRAVO" data-fr="Politique de confidentialité - ENERGY BRAVO" content="سياسة الخصوصية - ENERGY BRAVO">
+    <meta property="og:description" data-ar="كيف نجمع ونستخدم ونحمي بياناتك الشخصية" data-en="How we collect, use, and protect your personal data" data-fr="Comment nous collectons, utilisons et protégeons vos données personnelles" content="كيف نجمع ونستخدم ونحمي بياناتك الشخصية">
+    <meta property="og:site_name" content="ENERGY BRAVO">
+    <meta property="og:image" content="https://i.ibb.co/7tKdRmfC/68-1.png">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/7tKdRmfC/68-1.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/7tKdRmfC/68-1.png">
+    <meta name="theme-color" content="#9333ea">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="shared/css/global.css?v=15">
+    <link rel="stylesheet" href="shared/css/toast.css?v=5">
+    <link rel="stylesheet" href="shared/css/header.css?v=37">
+    <link rel="stylesheet" href="shared/css/footer.css?v=16">
+    <link rel="stylesheet" href="shared/css/responsive.css?v=16">
+    <link rel="stylesheet" href="shared/css/components.css?v=23">
+    <link rel="stylesheet" href="shared/css/reveal.css?v=3">
+    <link rel="stylesheet" href="shared/css/quick-view.css?v=22">
+    <link rel="stylesheet" href="css/policies.css?v=8">
+    <link rel="canonical" href="https://yourdomain.com/privacy-policy.html" />
+
+</head>
+<body class="policy-body">
+
+    <!-- Particles Background -->
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer" role="alert" aria-live="polite"></div>
+
+    <!-- Dropdown Overlay -->
+    <div class="dropdown-overlay" id="dropdownOverlay"></div>
+
+    <!-- ==================== HEADER ==================== -->
+        <header role="banner">
+        <nav role="navigation" aria-label="Main Navigation">
+            <!-- Logo -->
+            <a href="index.html" class="logo" aria-label="ENERGY BRAVO Home">
+                <img src="https://i.ibb.co/7tKdRmfC/68-1.png" alt="ENERGY BRAVO Logo" class="logo-img" width="55" height="55">
+                <span class="logo-text">ENERGY BRAVO</span>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu" role="menubar">
+    
+    <!-- Mobile: divider -->
+    <li class="nav-menu-divider" role="separator"><span data-ar="الحساب" data-en="Account" data-fr="Compte">الحساب</span></li>
+
+    <!-- Mobile: حسابي (logged in) -->
+    <li class="mobile-action-item logged-in-only" id="accountMobile" style="display:none;" role="none">
+        <a class="mobile-action-btn" href="profile.html">
+            <i class="fas fa-user"></i>
+            <span data-ar="حسابي" data-en="My Account" data-fr="Mon Compte">حسابي</span>
+        </a>
+    </li>
+    <li class="mobile-action-item logged-in-only" id="switchAccountMobile" style="display:none;" role="none">
+        <a class="mobile-action-btn" href="javascript:handleSwitchAccount()">
+            <i class="fas fa-exchange-alt"></i>
+            <span data-ar="تبديل الحساب" data-en="Switch Account" data-fr="Changer de compte">تبديل الحساب</span>
+        </a>
+    </li>
+    <li class="mobile-action-item logged-in-only" id="logoutMobile" style="display:none;" role="none">
+        <a class="mobile-action-btn" href="javascript:handleLogout()">
+            <span class="logout-icon-svg" style="width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:rgba(239,68,68,0.1);border-radius:12px;flex-shrink:0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            </span>
+            <span data-ar="تسجيل الخروج" data-en="Logout" data-fr="Déconnexion">تسجيل الخروج</span>
+        </a>
+    </li>
+    <!-- Mobile: تسجيل الدخول (guest) -->
+    <li class="mobile-action-item guest-only" id="loginMobile" role="none">
+        <a class="mobile-action-btn" href="auth.html">
+            <i class="fas fa-sign-in-alt"></i>
+            <span data-ar="تسجيل الدخول" data-en="Login" data-fr="Connexion">تسجيل الدخول</span>
+        </a>
+    </li>
+    <li class="mobile-action-item guest-only" id="registerMobile" role="none">
+        <a class="mobile-action-btn" href="auth.html#register">
+            <i class="fas fa-user-plus"></i>
+            <span data-ar="إنشاء حساب" data-en="Register" data-fr="S'inscrire">إنشاء حساب</span>
+        </a>
+    </li>
+
+    <!-- Mobile: طلباتي -->
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn" href="orders.html">
+            <i class="fas fa-box"></i>
+            <span data-ar="طلباتي" data-en="My Orders" data-fr="Mes commandes">طلباتي</span>
+            <span class="action-badge" id="ordersBadgeMobile">0</span>
+        </a>
+    </li>
+
+    <!-- Mobile: divider + pages toggle -->
+    <li class="nav-menu-divider" role="separator"><span data-ar="صفحات الموقع" data-en="Site Pages" data-fr="Pages du site">صفحات الموقع</span></li>
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn pages-toggle" href="javascript:void(0)" onclick="togglePagesMenu();return false">
+            <i class="fas fa-globe"></i>
+            <span data-ar="صفحات الموقع" data-en="Site Pages" data-fr="Pages du site">صفحات الموقع</span>
+            <i class="fas fa-chevron-down pages-arrow"></i>
+        </a>
+        <div class="pages-submenu" id="pagesSubmenu">
+            <a href="index.html" class="pages-link" role="menuitem"><i class="fas fa-house-chimney"></i><span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span></a>
+            <a href="products.html" class="pages-link" role="menuitem"><i class="fas fa-store"></i><span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span></a>
+            <a href="about.html" class="pages-link" role="menuitem"><i class="fas fa-users-gear"></i><span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span></a>
+            <a href="contact.html" class="pages-link" role="menuitem"><i class="fas fa-headset"></i><span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span></a>
+            <a href="terms.html" class="pages-link" role="menuitem"><i class="fas fa-file-contract"></i><span data-ar="الشروط" data-en="Terms" data-fr="Conditions">الشروط</span></a>
+            <a href="refund-policy.html" class="pages-link" role="menuitem"><i class="fas fa-rotate-left"></i><span data-ar="الاسترداد" data-en="Refund Policy" data-fr="Remboursement">الاسترداد</span></a>
+            <a href="delivery-policy.html" class="pages-link" role="menuitem"><i class="fas fa-truck-fast"></i><span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span></a>
+            <a href="privacy-policy.html" class="active" aria-current="page" class="pages-link" role="menuitem"><i class="fas fa-shield-halved"></i><span data-ar="سياسة الخصوصية" data-en="Privacy Policy" data-fr="Confidentialité">سياسة الخصوصية</span></a>
+        </div>
+    </li>
+
+    <!-- الرئيسية -->
+            <li role="none">
+                <a href="index.html" role="menuitem">
+                    <i class="fas fa-house-chimney" aria-hidden="true"></i>
+                    <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span>
+                </a>
+            </li>
+
+            <!-- الصفحات الشرطية تظهر هنا فقط عند فتحها -->
+            <li class="conditional-nav-item nav-item-wishlist" data-page="wishlist.html" style="display:none;">
+                <a href="wishlist.html" role="menuitem">
+                    <i class="fas fa-heart"></i>
+                    <span data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
+                    <span class="action-badge" id="wishlistBadge">0</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-cart" data-page="cart.html" style="display:none;">
+                <a href="cart.html" role="menuitem">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+                    <span class="action-badge" id="cartBadge">0</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-checkout" data-page="checkout.html" style="display:none;">
+                <a href="checkout.html" role="menuitem">
+                    <i class="fas fa-credit-card"></i>
+                    <span data-ar="إتمام الشراء" data-en="Checkout" data-fr="Paiement">إتمام الشراء</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-profile" data-page="profile.html" style="display:none;">
+                <a href="profile.html" role="menuitem">
+                    <i class="fas fa-user"></i>
+                    <span data-ar="حسابي" data-en="My Account" data-fr="Mon Compte">حسابي</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-orders" data-page="orders.html" style="display:none;">
+                <a href="orders.html" role="menuitem">
+                    <i class="fas fa-box"></i>
+                    <span data-ar="طلباتي" data-en="My Orders" data-fr="Mes commandes">طلباتي</span>
+                    <span class="action-badge" id="ordersBadge">0</span>
+                </a>
+            </li>
+            <li class="conditional-nav-item nav-item-product-details" data-page="product-details.html" style="display:none;">
+                <a href="product-details.html" role="menuitem">
+                    <i class="fas fa-circle-info"></i>
+                    <span data-ar="تفاصيل المنتج" data-en="Product Details" data-fr="Détails du produit">تفاصيل المنتج</span>
+                </a>
+            </li>
+
+            <!-- المنتجات -->
+            <li role="none">
+                <a href="products.html" role="menuitem">
+                    <i class="fas fa-store" aria-hidden="true"></i> 
+                    <span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span>
+                </a>
+            </li>
+            
+            <!-- من نحن -->
+            <li role="none">
+                <a href="about.html" role="menuitem">
+                    <i class="fas fa-users-gear" aria-hidden="true"></i> 
+                    <span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span>
+                </a>
+            </li>
+            
+            <!-- تواصل معنا -->
+            <li role="none">
+                <a href="contact.html" role="menuitem">
+                    <i class="fas fa-headset" aria-hidden="true"></i> 
+                    <span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span>
+                </a>
+            </li>
+            <!-- السياسات -->
+            <li role="none">
+                <a href="terms.html" role="menuitem">
+                    <i class="fas fa-file-contract" aria-hidden="true"></i> 
+                    <span data-ar="الشروط" data-en="Terms" data-fr="Conditions">الشروط</span>
+                </a>
+            </li>
+            <li role="none">
+                <a href="refund-policy.html" role="menuitem">
+                    <i class="fas fa-rotate-left" aria-hidden="true"></i> 
+                    <span data-ar="الاسترداد" data-en="Refund Policy" data-fr="Remboursement">الاسترداد</span>
+                </a>
+            </li>
+<li role="none">
+                <a href="delivery-policy.html" role="menuitem">
+                    <i class="fas fa-truck-fast" aria-hidden="true"></i> 
+                    <span data-ar="التسليم" data-en="Delivery Policy" data-fr="Livraison">التسليم</span>
+                </a>
+            </li>
+            <li role="none">
+                <a href="privacy-policy.html" class="active" aria-current="page" role="menuitem">
+                    <i class="fas fa-shield-halved" aria-hidden="true"></i> 
+                    <span data-ar="سياسة الخصوصية" data-en="Privacy Policy" data-fr="Confidentialité">سياسة الخصوصية</span>
+                </a>
+            </li>
+
+
+    <!-- Mobile: divider -->
+    <li class="nav-menu-divider" role="separator"><span data-ar="التسوق" data-en="Shopping" data-fr="Achats">التسوق</span></li>
+
+    <!-- Mobile: wishlist -->
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn" href="wishlist.html">
+            <i class="fas fa-heart"></i>
+            <span data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
+            <span class="action-badge" id="wishlistBadgeMobile">0</span>
+        </a>
+    </li>
+
+    <!-- Mobile: cart -->
+    <li class="mobile-action-item" role="none">
+        <a class="mobile-action-btn" href="cart.html">
+            <i class="fas fa-shopping-cart"></i>
+            <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+            <span class="action-badge" id="cartBadgeMobile">0</span>
+        </a>
+    </li>
+
+</ul>
+            <!-- Action Buttons -->
+            <div class="nav-actions">
+                
+                <!-- Language Switch -->
+                <div class="action-btn-wrapper dropdown" id="languageSection">
+                    <button class="action-btn lang-switch" onclick="toggleDropdown('languageSection')" aria-label="تبديل اللغة" aria-haspopup="true" aria-expanded="false">
+                        <span id="langText"><span class="flag-icon">🇪🇬</span></span>
+                    </button>
+                    <span class="action-label" data-ar="اللغة" data-en="Language" data-fr="Langue">اللغة</span>
+                    <div class="dropdown-menu" id="languageMenu" role="menu">
+                        <div class="dropdown-content lan-switch-content" id="languageContent">
+                            <button class="lang-option" onclick="switchLanguage('ar')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/eg.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">AR</strong> العربية
+                            </button>
+                            <button class="lang-option" onclick="switchLanguage('en')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/us.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">EN</strong> English
+                            </button>
+                            <button class="lang-option" onclick="switchLanguage('fr')">
+                                <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@main/flags/1x1/fr.svg" style="display:inline-block;width:30px;height:22px;border-radius:3px;object-fit:cover;vertical-align:middle;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                                <strong style="font-size:0.82em;opacity:0.7;letter-spacing:0.5px;font-family:Poppins,sans-serif;">FR</strong> Français
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wishlist -->
+                <div class="action-btn-wrapper dropdown" id="wishlistDropdown">
+                    <button class="action-btn" onclick="toggleDropdown('wishlistDropdown')" aria-label="المفضلة" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        <span class="action-badge" id="wishlistBadge" style="display: none;">0</span>
+                    </button>
+                    <span class="action-label" data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
+                    <div class="dropdown-menu" id="wishlistMenu" role="menu">
+                        <div class="dropdown-header">
+                            <h4>
+                                <i class="fas fa-heart" aria-hidden="true"></i> 
+                                <span data-ar="المفضلة" data-en="Wishlist" data-fr="Favoris">المفضلة</span>
+                            </h4>
+                        </div>
+                        <div class="dropdown-content" id="wishlistContent"></div>
+                        <div class="dropdown-footer">
+                            <a href="wishlist.html" class="dropdown-btn">
+                                <span data-ar="عرض الكل" data-en="View All" data-fr="Voir tout">عرض الكل</span>
+                                <span class="emoji">❤️</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders -->
+                <div class="action-btn-wrapper desktop-only">
+                    <a href="orders.html" class="action-btn" aria-label="طلباتي">
+                        <i class="fas fa-box" aria-hidden="true"></i>
+                        <span class="action-badge" id="ordersBadge" style="display: none;">0</span>
+                    </a>
+                    <span class="action-label" data-ar="طلباتي" data-en="Orders" data-fr="Commandes">طلباتي</span>
+                </div>
+
+                <!-- Cart -->
+                <div class="action-btn-wrapper dropdown" id="cartDropdown">
+                    <button class="action-btn" onclick="toggleDropdown('cartDropdown')" aria-label="سلة التسوق" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="action-badge" id="cartBadge" style="display: none;">0</span>
+                    </button>
+                    <span class="action-label" data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+                    <div class="dropdown-menu" id="cartMenu" role="menu">
+                        <div class="dropdown-header">
+                            <h4>
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i> 
+                                <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+                            </h4>
+                        </div>
+                        <div class="dropdown-content" id="cartContent"></div>
+                        <div class="dropdown-footer">
+                            <a href="cart.html" class="dropdown-btn dropdown-btn-cart">
+                                <span data-ar="السلة" data-en="Cart" data-fr="Panier">السلة</span>
+                                <span class="emoji">🛒</span>
+                            </a>
+                            <a href="checkout.html" class="dropdown-btn dropdown-btn-checkout">
+                                <span data-ar="إتمام الشراء" data-en="Checkout" data-fr="Paiement">إتمام الشراء</span>
+                                <span class="emoji">💳</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Menu -->
+                <div class="action-btn-wrapper dropdown" id="userDropdown">
+                    <button class="action-btn" onclick="toggleDropdown('userDropdown')" aria-label="حسابي" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </button>
+                    <span class="action-label" data-ar="حسابي" data-en="Account" data-fr="Compte">حسابي</span>
+                    <div class="dropdown-menu" id="userMenu" role="menu">
+                        <div class="user-info" id="userInfo">
+                            <div class="user-avatar" id="userAvatar">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4 id="userName" data-ar="زائر" data-en="Guest" data-fr="Invité">زائر</h4>
+                                <p id="userEmail" data-ar="سجل الدخول للمتابعة" data-en="Login to continue" data-fr="Connectez-vous">سجل الدخول للمتابعة</p>
+                            </div>
+                        </div>
+                        <div class="user-menu-content" id="guestMenuContent">
+                            <a href="auth.html" class="user-menu-item">
+                                <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+                                <span data-ar="تسجيل الدخول" data-en="Login" data-fr="Connexion">تسجيل الدخول</span>
+                            </a>
+                            <a href="auth.html?mode=register" class="user-menu-item">
+                                <i class="fas fa-user-plus" aria-hidden="true"></i>
+                                <span data-ar="إنشاء حساب جديد" data-en="Create Account" data-fr="Créer un compte">إنشاء حساب جديد</span>
+                            </a>
+                        </div>
+                        <div class="user-menu-content" id="loggedInMenuContent" style="display: none;"></div>
+                        <div class="dropdown-footer" id="logoutSection" style="display: none;">
+                            <button class="dropdown-btn logout-btn" onclick="handleLogout()">
+                                <span data-ar="تسجيل الخروج" data-en="Logout" data-fr="Déconnexion">تسجيل الخروج</span>
+                                <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="action-btn-wrapper mobile-menu-toggle">
+                    <button class="action-btn" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">
+                        <i class="fas fa-bars" id="mobileMenuIcon" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Admin Button -->
+                <a href="admin.html" class="admin-btn" id="adminBtn" style="display: none;" aria-label="لوحة التحكم">
+                    <i class="fas fa-user-shield" aria-hidden="true"></i>
+                    <span data-ar="لوحة التحكم" data-en="Admin" data-fr="Admin">لوحة التحكم</span>
+                </a>
+                
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="policy-page">
+        <div class="container">
+
+<!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home home-icon"></i> <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span></a>
+                <i class="fas fa-chevron-left chevron"></i>
+                <span class="current" data-ar="سياسة الخصوصية" data-en="Privacy Policy" data-fr="Politique de confidentialité">سياسة الخصوصية</span>
+            </div>
+
+            <!-- Hero -->
+            <div class="page-hero-wrapper">
+                <h1>
+                    <span class="hero-headline typing-done"><span data-ar="سياسة الخصوصية" data-en="Privacy Policy" data-fr="Politique de confidentialité">سياسة الخصوصية</span> <span class="emoji">🔒</span></span>
+                </h1>
+                <p class="page-subtitle" data-ar="كيف نجمع بياناتك نستخدمها ونحميها بكل شفافية وأمان أثناء استخدامك لمتجرنا" data-en="How we collect, use, and protect your data with full transparency and security while you use our store" data-fr="Comment nous collectons, utilisons et protégeons vos données en toute transparence et sécurité lorsque vous utilisez notre boutique">كيف نجمع بياناتك نستخدمها ونحميها بكل شفافية وأمان أثناء استخدامك لمتجرنا</p>
+            </div>
+
+            <div class="policy-updated">
+                <i class="fas fa-clock"></i>
+                <span data-ar="آخر تحديث" data-en="Last updated" data-fr="Dernière mise à jour">آخر تحديث</span>:
+                <span data-policy="lastUpdated">16 سبتمبر 2026</span>
+            </div>
+
+            <div class="policy-actions">
+                <button class="policy-action-btn" onclick="window.print()" aria-label="طباعة السياسة"><i class="fas fa-print"></i> <span data-ar="طباعة" data-en="Print" data-fr="Imprimer">طباعة</span></button>
+                <button class="policy-action-btn" onclick="copyCurrentPageLink(this)" aria-label="نسخ رابط الصفحة"><i class="fas fa-copy"></i> <span data-ar="نسخ الرابط" data-en="Copy Link" data-fr="Copier le lien">نسخ الرابط</span></button>
+                <button class="policy-action-btn" onclick="sharePage(this)" aria-label="مشاركة الصفحة"><i class="fas fa-share-alt"></i> <span data-ar="مشاركة" data-en="Share" data-fr="Partager">مشاركة</span></button>
+            </div>
+
+            <!-- Table of Contents -->
+            <nav class="policy-toc" aria-label="Table of Contents">
+                <a href="#intro"><i class="fas fa-circle-info"></i> <span data-ar="مقدمة" data-en="Introduction" data-fr="Introduction">مقدمة</span></a>
+                <a href="#data-collected"><i class="fas fa-database"></i> <span data-ar="البيانات التي نجمعها" data-en="Data We Collect" data-fr="Données collectées">البيانات التي نجمعها</span></a>
+                <a href="#data-use"><i class="fas fa-gears"></i> <span data-ar="كيفية استخدام البيانات" data-en="How We Use Data" data-fr="Utilisation des données">كيفية استخدام البيانات</span></a>
+                <a href="#digital-delivery"><i class="fas fa-cloud-arrow-down"></i> <span data-ar="المنتجات الرقمية والتسليم" data-en="Digital Products &amp; Delivery" data-fr="Produits numériques et livraison">المنتجات الرقمية والتسليم</span></a>
+                <a href="#data-sharing"><i class="fas fa-share-nodes"></i> <span data-ar="مشاركة البيانات" data-en="Data Sharing" data-fr="Partage des données">مشاركة البيانات</span></a>
+                <a href="#payment-security"><i class="fas fa-credit-card"></i> <span data-ar="حماية بيانات الدفع" data-en="Payment Security" data-fr="Sécurité des paiements">حماية بيانات الدفع</span></a>
+                <a href="#cookies"><i class="fas fa-cookie-bite"></i> <span data-ar="ملفات تعريف الارتباط" data-en="Cookies" data-fr="Cookies">ملفات تعريف الارتباط</span></a>
+                <a href="#analytics"><i class="fas fa-chart-line"></i> <span data-ar="التحليلات" data-en="Analytics" data-fr="Analyse">التحليلات</span></a>
+                <a href="#data-security"><i class="fas fa-shield-halved"></i> <span data-ar="أمان البيانات" data-en="Data Security" data-fr="Sécurité des données">أمان البيانات</span></a>
+                <a href="#retention"><i class="fas fa-clock-rotate-left"></i> <span data-ar="الاحتفاظ بالبيانات" data-en="Data Retention" data-fr="Conservation des données">الاحتفاظ بالبيانات</span></a>
+                <a href="#user-rights"><i class="fas fa-user-shield"></i> <span data-ar="حقوق المستخدم" data-en="User Rights" data-fr="Droits des utilisateurs">حقوق المستخدم</span></a>
+                <a href="#account"><i class="fas fa-user-lock"></i> <span data-ar="حساب المستخدم" data-en="User Account" data-fr="Compte utilisateur">حساب المستخدم</span></a>
+                <a href="#third-party"><i class="fas fa-link"></i> <span data-ar="خدمات الطرف الثالث" data-en="Third-Party Services" data-fr="Services tiers">خدمات الطرف الثالث</span></a>
+                <a href="#children"><i class="fas fa-child-reaching"></i> <span data-ar="خصوصية الأطفال" data-en="Children's Privacy" data-fr="Confidentialité des enfants">خصوصية الأطفال</span></a>
+                <a href="#changes"><i class="fas fa-pen-to-square"></i> <span data-ar="تحديث السياسة" data-en="Policy Updates" data-fr="Mises à jour">تحديث السياسة</span></a>
+                <a href="#contact"><i class="fas fa-headset"></i> <span data-ar="التواصل معنا" data-en="Contact Us" data-fr="Contactez-nous">التواصل معنا</span></a>
+            </nav>
+
+<!-- 1. Introduction -->
+            <section class="policy-card" id="intro">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-circle-info"></i></span>
+                    <h3 data-ar="مقدمة" data-en="Introduction" data-fr="Introduction">مقدمة</h3>
+                </div>
+                <p data-ar="في متجر ENERGY BRAVO، نحترم خصوصية مستخدمينا ونسعى إلى حماية البيانات الشخصية التي يتم جمعها أثناء استخدام الموقع والخدمات. باستخدامك للموقع أو إنشاء حساب أو إجراء طلب، فإنك تقر بالاطلاع على سياسة الخصوصية هذه وفقاً للقوانين والشروط المعمول بها." data-en="At ENERGY BRAVO Store, we respect the privacy of our users and strive to protect the personal data collected while using the site and services. By using the site, creating an account, or placing an order, you acknowledge that you have read this privacy policy in accordance with applicable laws and terms." data-fr="Chez ENERGY BRAVO, nous respectons la confidentialité de nos utilisateurs et nous nous efforçons de protéger les données personnelles collectées lors de l'utilisation du site et des services. En utilisant le site, en créant un compte ou en passant une commande, vous reconnaissez avoir pris connaissance de la présente politique de confidentialité conformément aux lois et conditions applicables.">في متجر ENERGY BRAVO، نحترم خصوصية مستخدمينا ونسعى إلى حماية البيانات الشخصية التي يتم جمعها أثناء استخدام الموقع والخدمات. باستخدامك للموقع أو إنشاء حساب أو إجراء طلب، فإنك تقر بالاطلاع على سياسة الخصوصية هذه وفقاً للقوانين والشروط المعمول بها.</p>
+            </section>
+
+            <!-- 2. Data We Collect -->
+            <section class="policy-card" id="data-collected">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-database"></i></span>
+                    <h3 data-ar="البيانات التي نجمعها" data-en="Data We Collect" data-fr="Données que nous collectons">البيانات التي نجمعها</h3>
+                </div>
+                <p data-ar="نجمع فقط البيانات اللازمة لتشغيل المتجر وتقديم الخدمات، وتنقسم إلى:" data-en="We only collect the data necessary to operate the store and provide our services, divided into:" data-fr="Nous ne collectons que les données nécessaires au fonctionnement de la boutique et à la fourniture de nos services, réparties en :">نجمع فقط البيانات اللازمة لتشغيل المتجر وتقديم الخدمات، وتنقسم إلى:</p>
+                <p><strong data-ar="بيانات الحساب:" data-en="Account Data:" data-fr="Données du compte :">بيانات الحساب:</strong></p>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="الاسم." data-en="Name." data-fr="Nom.">الاسم.</li>
+                    <li class="dot" data-ar="البريد الإلكتروني." data-en="Email address." data-fr="Adresse e-mail.">البريد الإلكتروني.</li>
+                    <li class="dot" data-ar="رقم الهاتف." data-en="Phone number." data-fr="Numéro de téléphone.">رقم الهاتف.</li>
+                    <li class="dot" data-ar="بيانات تسجيل الدخول الخاصة بالحساب." data-en="Account login data." data-fr="Données de connexion du compte.">بيانات تسجيل الدخول الخاصة بالحساب.</li>
+                </ul>
+                <p><strong data-ar="بيانات الطلبات:" data-en="Order Data:" data-fr="Données de commande :">بيانات الطلبات:</strong></p>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="المنتجات التي تم شراؤها." data-en="Products purchased." data-fr="Produits achetés.">المنتجات التي تم شراؤها.</li>
+                    <li class="dot" data-ar="رقم الطلب." data-en="Order number." data-fr="Numéro de commande.">رقم الطلب.</li>
+                    <li class="dot" data-ar="قيمة الطلب." data-en="Order value." data-fr="Valeur de la commande.">قيمة الطلب.</li>
+                    <li class="dot" data-ar="حالة الطلب." data-en="Order status." data-fr="Statut de la commande.">حالة الطلب.</li>
+                    <li class="dot" data-ar="تاريخ الطلب." data-en="Order date." data-fr="Date de la commande.">تاريخ الطلب.</li>
+                </ul>
+                <div class="policy-callout callout-info">
+                    <span class="policy-callout-icon"><i class="fas fa-circle-info"></i></span>
+                    <p data-ar="تتم جميع عمليات الدفع من خلال مزود دفع خارجي؛ حيث لا نخزن أرقام البطاقات البنكية أو رموز CVV الحساسة داخل أنظمة المتجر." data-en="All payments are processed through an external payment provider; we do not store sensitive credit card numbers or CVV codes within the store's systems." data-fr="Tous les paiements sont traités via un fournisseur de paiement externe ; nous ne stockons pas les numéros de carte bancaire ni les codes CVV sensibles dans les systèmes de la boutique.">تتم جميع عمليات الدفع من خلال مزود دفع خارجي؛ حيث لا نخزن أرقام البطاقات البنكية أو رموز CVV الحساسة داخل أنظمة المتجر.</p>
+                </div>
+            </section>
+
+            <!-- 3. How We Use Data -->
+            <section class="policy-card" id="data-use">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-gears"></i></span>
+                    <h3 data-ar="كيفية استخدام البيانات" data-en="How We Use Data" data-fr="Utilisation des données">كيفية استخدام البيانات</h3>
+                </div>
+                <ul class="policy-list">
+                    <li class="ok" data-ar="إنشاء وإدارة الحساب." data-en="Creating and managing the account." data-fr="Création et gestion du compte.">إنشاء وإدارة الحساب.</li>
+                    <li class="ok" data-ar="معالجة الطلبات." data-en="Processing orders." data-fr="Traitement des commandes.">معالجة الطلبات.</li>
+                    <li class="ok" data-ar="تأكيد عمليات الدفع." data-en="Confirming payments." data-fr="Confirmation des paiements.">تأكيد عمليات الدفع.</li>
+                    <li class="ok" data-ar="تسليم المنتجات الرقمية." data-en="Delivering digital products." data-fr="Livraison des produits numériques.">تسليم المنتجات الرقمية.</li>
+                    <li class="ok" data-ar="التواصل مع العميل بشأن الطلب." data-en="Communicating with the customer about the order." data-fr="Communication avec le client concernant la commande.">التواصل مع العميل بشأن الطلب.</li>
+                    <li class="ok" data-ar="تقديم الدعم الفني." data-en="Providing technical support." data-fr="Fourniture d'assistance technique.">تقديم الدعم الفني.</li>
+                    <li class="ok" data-ar="معالجة طلبات الاسترجاع." data-en="Handling refund requests." data-fr="Traitement des demandes de remboursement.">معالجة طلبات الاسترجاع.</li>
+                    <li class="ok" data-ar="منع الاحتيال وإساءة استخدام الموقع." data-en="Preventing fraud and site abuse." data-fr="Prévention de la fraude et des abus du site.">منع الاحتيال وإساءة استخدام الموقع.</li>
+                    <li class="ok" data-ar="تحسين أداء الموقع والخدمات." data-en="Improving site and service performance." data-fr="Amélioration des performances du site et des services.">تحسين أداء الموقع والخدمات.</li>
+                    <li class="ok" data-ar="الالتزام بالمتطلبات القانونية والتنظيمية." data-en="Complying with legal and regulatory requirements." data-fr="Respect des exigences légales et réglementaires.">الالتزام بالمتطلبات القانونية والتنظيمية.</li>
+                </ul>
+            </section>
+
+            <!-- 4. Digital Products & Delivery -->
+            <section class="policy-card" id="digital-delivery">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-cloud-arrow-down"></i></span>
+                    <h3 data-ar="المنتجات الرقمية والتسليم" data-en="Digital Products &amp; Delivery" data-fr="Produits numériques et livraison">المنتجات الرقمية والتسليم</h3>
+                </div>
+                <p data-ar="بما أن متجر ENERGY BRAVO يقدم منتجات رقمية، فقد تُستخدم بيانات العميل لتنفيذ وتسليم المنتج الرقمي على النحو التالي:" data-en="Since ENERGY BRAVO Store offers digital products, customer data may be used to fulfill and deliver the digital product as follows:" data-fr="Le magasin ENERGY BRAVO proposant des produits numériques, les données du client peuvent être utilisées pour exécuter et livrer le produit numérique comme suit :">بما أن متجر ENERGY BRAVO يقدم منتجات رقمية، فقد تُستخدم بيانات العميل لتنفيذ وتسليم المنتج الرقمي على النحو التالي:</p>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="قد يتم ربط عملية الشراء بحساب العميل أو البريد الإلكتروني أو رقم الطلب." data-en="The purchase may be linked to the customer's account, email, or order number." data-fr="L'achat peut être lié au compte, à l'e-mail ou au numéro de commande du client.">قد يتم ربط عملية الشراء بحساب العميل أو البريد الإلكتروني أو رقم الطلب.</li>
+                    <li class="dot" data-ar="قد يتم إنشاء رابط تحميل أو منح صلاحية الوصول إلى المنتج." data-en="A download link may be created or access to the product may be granted." data-fr="Un lien de téléchargement peut être créé ou l'accès au produit peut être accordé.">قد يتم إنشاء رابط تحميل أو منح صلاحية الوصول إلى المنتج.</li>
+                    <li class="dot" data-ar="قد يتم تسجيل حالة التسليم أو الوصول للمنتج لأغراض تشغيلية وأمنية وحل النزاعات وطلبات الدعم." data-en="Delivery or access status may be recorded for operational, security, dispute resolution, and support purposes." data-fr="Le statut de livraison ou d'accès peut être enregistré à des fins opérationnelles, de sécurité, de résolution des litiges et d'assistance.">قد يتم تسجيل حالة التسليم أو الوصول للمنتج لأغراض تشغيلية وأمنية وحل النزاعات وطلبات الدعم.</li>
+                </ul>
+            </section>
+
+            <!-- 5. Data Sharing -->
+            <section class="policy-card" id="data-sharing">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-share-nodes"></i></span>
+                    <h3 data-ar="مشاركة البيانات مع الأطراف الأخرى" data-en="Data Sharing with Other Parties" data-fr="Partage des données avec d'autres parties">مشاركة البيانات مع الأطراف الأخرى</h3>
+                </div>
+                <p data-ar="لا نبيع بياناتك. قد تتم مشاركة البيانات فقط عند الحاجة لتقديم الخدمة، مع الأطراف التالية:" data-en="We do not sell your data. Data may be shared only when necessary to provide the service, with the following parties:" data-fr="Nous ne vendons pas vos données. Les données peuvent être partagées uniquement lorsque cela est nécessaire à la fourniture du service, avec les parties suivantes :">لا نبيع بياناتك. قد تتم مشاركة البيانات فقط عند الحاجة لتقديم الخدمة، مع الأطراف التالية:</p>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="مزود خدمات الدفع (لإتمام عمليات الدفع الإلكتروني)." data-en="Payment service provider (to complete electronic payments)." data-fr="Fournisseur de services de paiement (pour effectuer les paiements électroniques).">مزود خدمات الدفع (لإتمام عمليات الدفع الإلكتروني).</li>
+                    <li class="dot" data-ar="مزود الاستضافة والبنية التحتية (خدمات Firebase لتخزين بيانات المنتجات والطلبات والصور)." data-en="Hosting and infrastructure provider (Firebase services for storing product, order, and image data)." data-fr="Fournisseur d'hébergement et d'infrastructure (services Firebase pour le stockage des produits, commandes et images).">مزود الاستضافة والبنية التحتية (خدمات Firebase لتخزين بيانات المنتجات والطلبات والصور).</li>
+                    <li class="dot" data-ar="خدمات رفع الصور والوسائط المستخدمة في تشغيل الموقع (مثل ImgBB)." data-en="Image and media upload services used to operate the site (such as ImgBB)." data-fr="Services de téléchargement d'images et de médias utilisés pour exploiter le site (tels que ImgBB).">خدمات رفع الصور والوسائط المستخدمة في تشغيل الموقع (مثل ImgBB).</li>
+                    <li class="dot" data-ar="الجهات المختصة عندما يكون ذلك مطلوباً قانونياً." data-en="Competent authorities when legally required." data-fr="Autorités compétentes lorsque la loi l'exige.">الجهات المختصة عندما يكون ذلك مطلوباً قانونياً.</li>
+                </ul>
+                <p data-ar="تتم مشاركة البيانات في حدود الغرض المطلوب لتقديم الخدمة أو الالتزام بالمتطلبات القانونية فقط." data-en="Data is shared only within the scope required to provide the service or comply with legal requirements." data-fr="Les données ne sont partagées que dans la mesure nécessaire à la fourniture du service ou au respect des exigences légales.">تتم مشاركة البيانات في حدود الغرض المطلوب لتقديم الخدمة أو الالتزام بالمتطلبات القانونية فقط.</p>
+            </section>
+
+            <!-- 6. Payment Security -->
+            <section class="policy-card" id="payment-security">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-credit-card"></i></span>
+                    <h3 data-ar="حماية بيانات الدفع" data-en="Payment Data Protection" data-fr="Protection des données de paiement">حماية بيانات الدفع</h3>
+                </div>
+                <ul class="policy-list">
+                    <li class="ok" data-ar="عمليات الدفع الإلكتروني تتم من خلال مزود الدفع المعتمد." data-en="Electronic payments are processed through the approved payment provider." data-fr="Les paiements électroniques sont traités via le fournisseur de paiement agréé.">عمليات الدفع الإلكتروني تتم من خلال مزود الدفع المعتمد.</li>
+                    <li class="ok" data-ar="BRAVO لا يطلب من العميل إرسال بيانات البطاقة الحساسة عبر الرسائل أو وسائل التواصل غير الآمنة." data-en="BRAVO never asks customers to send sensitive card data via messages or insecure communication channels." data-fr="BRAVO ne demande jamais aux clients d'envoyer des données de carte sensibles via des messages ou des canaux de communication non sécurisés.">BRAVO لا يطلب من العميل إرسال بيانات البطاقة الحساسة عبر الرسائل أو وسائل التواصل غير الآمنة.</li>
+                    <li class="ok" data-ar="لا يتم تخزين بيانات البطاقة الحساسة داخل أنظمة BRAVO." data-en="Sensitive card data is not stored within BRAVO's systems." data-fr="Les données de carte sensibles ne sont pas stockées dans les systèmes de BRAVO.">لا يتم تخزين بيانات البطاقة الحساسة داخل أنظمة BRAVO.</li>
+                    <li class="ok" data-ar="يجب على العميل عدم مشاركة كلمات المرور أو بيانات الدخول مع أي شخص." data-en="Customers must not share passwords or login credentials with anyone." data-fr="Les clients ne doivent pas partager leurs mots de passe ou identifiants de connexion avec quiconque.">يجب على العميل عدم مشاركة كلمات المرور أو بيانات الدخول مع أي شخص.</li>
+                </ul>
+            </section>
+
+            <!-- 7. Cookies -->
+            <section class="policy-card" id="cookies">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-cookie-bite"></i></span>
+                    <h3 data-ar="ملفات تعريف الارتباط Cookies" data-en="Cookies" data-fr="Cookies">ملفات تعريف الارتباط Cookies</h3>
+                </div>
+                <p data-ar="ملفات تعريف الارتباط (Cookies) هي ملفات صغيرة يتم حفظها على جهازك عند زيارة الموقع. قد يستخدمها المتجر للأغراض التالية:" data-en="Cookies are small files stored on your device when you visit the site. They may be used for the following purposes:" data-fr="Les cookies sont de petits fichiers stockés sur votre appareil lors de la visite du site. Ils peuvent être utilisés aux fins suivantes :">ملفات تعريف الارتباط (Cookies) هي ملفات صغيرة يتم حفظها على جهازك عند زيارة الموقع. قد يستخدمها المتجر للأغراض التالية:</p>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="تشغيل الموقع بشكل صحيح." data-en="Running the site properly." data-fr="Fonctionnement correct du site.">تشغيل الموقع بشكل صحيح.</li>
+                    <li class="dot" data-ar="حفظ تفضيلات المستخدم." data-en="Saving user preferences." data-fr="Enregistrement des préférences utilisateur.">حفظ تفضيلات المستخدم.</li>
+                    <li class="dot" data-ar="الحفاظ على جلسة المستخدم." data-en="Maintaining the user session." data-fr="Maintien de la session utilisateur.">الحفاظ على جلسة المستخدم.</li>
+                    <li class="dot" data-ar="تحسين الأداء." data-en="Improving performance." data-fr="Amélioration des performances.">تحسين الأداء.</li>
+                </ul>
+                <div class="policy-callout callout-warn">
+                    <span class="policy-callout-icon"><i class="fas fa-triangle-exclamation"></i></span>
+                    <p data-ar="يمكنك التحكم في ملفات تعريف الارتباط من خلال إعدادات المتصفح في أي وقت. سيتم إضافة نظام إشعار موافقة ملفات تعريف الارتباط (Cookie Consent) عند تفعيله في الموقع." data-en="You can control cookies through your browser settings at any time. A cookie consent notification system will be added once enabled on the site." data-fr="Vous pouvez contrôler les cookies via les paramètres de votre navigateur à tout moment. Un système de notification de consentement aux cookies sera ajouté une fois activé sur le site.">يمكنك التحكم في ملفات تعريف الارتباط من خلال إعدادات المتصفح في أي وقت. سيتم إضافة نظام إشعار موافقة ملفات تعريف الارتباط (Cookie Consent) عند تفعيله في الموقع.</p>
+                </div>
+            </section>
+
+            <!-- 8. Analytics -->
+            <section class="policy-card" id="analytics">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-chart-line"></i></span>
+                    <h3 data-ar="بيانات الاستخدام والتحليلات" data-en="Usage Data and Analytics" data-fr="Données d'utilisation et analyse">بيانات الاستخدام والتحليلات</h3>
+                </div>
+                <p data-ar="قد يتم جمع بيانات غير شخصية عن طريقة استخدام الموقع لأغراض التشغيل وتحسين الأداء، مثل:" data-en="Non-personal data about site usage may be collected for operational and performance improvement purposes, such as:" data-fr="Des données non personnelles sur l'utilisation du site peuvent être collectées à des fins opérationnelles et d'amélioration des performances, telles que :">قد يتم جمع بيانات غير شخصية عن طريقة استخدام الموقع لأغراض التشغيل وتحسين الأداء، مثل:</p>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="نوع الجهاز." data-en="Device type." data-fr="Type d'appareil.">نوع الجهاز.</li>
+                    <li class="dot" data-ar="المتصفح المستخدم." data-en="Browser used." data-fr="Navigateur utilisé.">المتصفح المستخدم.</li>
+                    <li class="dot" data-ar="الصفحات التي تمت زيارتها." data-en="Pages visited." data-fr="Pages visitées.">الصفحات التي تمت زيارتها.</li>
+                    <li class="dot" data-ar="معلومات تقنية عن الاتصال." data-en="Technical connection information." data-fr="Informations techniques sur la connexion.">معلومات تقنية عن الاتصال.</li>
+                </ul>
+            </section>
+
+            <!-- 9. Data Security -->
+            <section class="policy-card" id="data-security">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-shield-halved"></i></span>
+                    <h3 data-ar="أمان البيانات" data-en="Data Security" data-fr="Sécurité des données">أمان البيانات</h3>
+                </div>
+                <ul class="policy-list">
+                    <li class="ok" data-ar="حماية الحسابات وصلاحيات الوصول." data-en="Protecting accounts and access permissions." data-fr="Protection des comptes et des autorisations d'accès.">حماية الحسابات وصلاحيات الوصول.</li>
+                    <li class="ok" data-ar="استخدام الاتصالات الآمنة HTTPS عندما تكون متاحة." data-en="Using secure HTTPS connections when available." data-fr="Utilisation de connexions HTTPS sécurisées lorsque disponibles.">استخدام الاتصالات الآمنة HTTPS عندما تكون متاحة.</li>
+                    <li class="ok" data-ar="حماية قواعد البيانات والخدمات (Firebase)." data-en="Protecting databases and services (Firebase)." data-fr="Protection des bases de données et des services (Firebase).">حماية قواعد البيانات والخدمات (Firebase).</li>
+                    <li class="ok" data-ar="مراقبة العمليات غير الطبيعية." data-en="Monitoring abnormal operations." data-fr="Surveillance des opérations anormales.">مراقبة العمليات غير الطبيعية.</li>
+                </ul>
+            </section>
+
+            <!-- 10. Data Retention -->
+            <section class="policy-card" id="retention">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-clock-rotate-left"></i></span>
+                    <h3 data-ar="الاحتفاظ بالبيانات" data-en="Data Retention" data-fr="Conservation des données">الاحتفاظ بالبيانات</h3>
+                </div>
+                <p data-ar="يتم الاحتفاظ بالبيانات للمدة اللازمة لتحقيق الأغراض التالية:" data-en="Data is retained for the period necessary to achieve the following purposes:" data-fr="Les données sont conservées pour la période nécessaire à la réalisation des objectifs suivants :">يتم الاحتفاظ بالبيانات للمدة اللازمة لتحقيق الأغراض التالية:</p>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="تنفيذ الطلبات." data-en="Fulfilling orders." data-fr="Exécution des commandes.">تنفيذ الطلبات.</li>
+                    <li class="dot" data-ar="تقديم الدعم." data-en="Providing support." data-fr="Fourniture d'assistance.">تقديم الدعم.</li>
+                    <li class="dot" data-ar="إدارة الحساب." data-en="Managing the account." data-fr="Gestion du compte.">إدارة الحساب.</li>
+                    <li class="dot" data-ar="الالتزام بالمتطلبات القانونية." data-en="Complying with legal requirements." data-fr="Respect des exigences légales.">الالتزام بالمتطلبات القانونية.</li>
+                    <li class="dot" data-ar="حل النزاعات." data-en="Resolving disputes." data-fr="Résolution des litiges.">حل النزاعات.</li>
+                    <li class="dot" data-ar="منع الاحتيال." data-en="Preventing fraud." data-fr="Prévention de la fraude.">منع الاحتيال.</li>
+                </ul>
+            </section>
+
+            <!-- 11. User Rights -->
+            <section class="policy-card" id="user-rights">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-user-shield"></i></span>
+                    <h3 data-ar="حقوق المستخدم" data-en="User Rights" data-fr="Droits des utilisateurs">حقوق المستخدم</h3>
+                </div>
+                <ul class="policy-list">
+                    <li class="ok" data-ar="معرفة البيانات التي يتم الاحتفاظ بها عنك، عندما يكون ذلك متاحاً." data-en="Know the data held about you, where available." data-fr="Connaître les données vous concernant, lorsque disponibles.">معرفة البيانات التي يتم الاحتفاظ بها عنك، عندما يكون ذلك متاحاً.</li>
+                    <li class="ok" data-ar="طلب تصحيح البيانات غير الصحيحة." data-en="Request correction of inaccurate data." data-fr="Demander la correction des données inexactes.">طلب تصحيح البيانات غير الصحيحة.</li>
+                    <li class="ok" data-ar="طلب حذف البيانات عندما يكون ذلك ممكناً قانونياً وتقنياً." data-en="Request deletion of data when legally and technically possible." data-fr="Demander la suppression des données lorsque cela est légalement et techniquement possible.">طلب حذف البيانات عندما يكون ذلك ممكناً قانونياً وتقنياً.</li>
+                    <li class="ok" data-ar="طلب توضيح كيفية استخدام البيانات." data-en="Request clarification of how data is used." data-fr="Demander des clarifications sur l'utilisation des données.">طلب توضيح كيفية استخدام البيانات.</li>
+                    <li class="ok" data-ar="التواصل مع BRAVO بشأن الخصوصية." data-en="Contact BRAVO regarding privacy." data-fr="Contacter BRAVO au sujet de la confidentialité.">التواصل مع BRAVO بشأن الخصوصية.</li>
+                </ul>
+                <div class="policy-callout callout-info">
+                    <span class="policy-callout-icon"><i class="fas fa-circle-info"></i></span>
+                    <p data-ar="قد يلزم الاحتفاظ ببعض البيانات لأسباب قانونية أو تشغيلية، وفي هذه الحالة سنفصح لك عن ذلك." data-en="Some data may need to be retained for legal or operational reasons; in that case, we will disclose this to you." data-fr="Certaines données peuvent devoir être conservées pour des raisons légales ou opérationnelles ; dans ce cas, nous vous en informerons.">قد يلزم الاحتفاظ ببعض البيانات لأسباب قانونية أو تشغيلية، وفي هذه الحالة سنفصح لك عن ذلك.</p>
+                </div>
+            </section>
+
+            <!-- 12. User Account -->
+            <section class="policy-card" id="account">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-user-lock"></i></span>
+                    <h3 data-ar="حساب المستخدم" data-en="User Account" data-fr="Compte utilisateur">حساب المستخدم</h3>
+                </div>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="أنت مسؤول عن بيانات تسجيل الدخول الخاصة بحسابك." data-en="You are responsible for your account login credentials." data-fr="Vous êtes responsable de vos identifiants de connexion.">أنت مسؤول عن بيانات تسجيل الدخول الخاصة بحسابك.</li>
+                    <li class="dot" data-ar="يجب الحفاظ على سرية كلمة المرور." data-en="You must keep your password confidential." data-fr="Vous devez garder votre mot de passe confidentiel.">يجب الحفاظ على سرية كلمة المرور.</li>
+                    <li class="dot" data-ar="لا تشارك بيانات حسابك مع أي شخص." data-en="Do not share your account credentials with anyone." data-fr="Ne partagez pas vos identifiants avec quiconque.">لا تشارك بيانات حسابك مع أي شخص.</li>
+                    <li class="dot" data-ar="تواصل مع الدعم في حالة الاشتباه في استخدام غير مصرح به." data-en="Contact support if you suspect unauthorized use." data-fr="Contactez le support en cas de soupçon d'utilisation non autorisée.">تواصل مع الدعم في حالة الاشتباه في استخدام غير مصرح به.</li>
+                </ul>
+            </section>
+
+            <!-- 13. Third-Party Services -->
+            <section class="policy-card" id="third-party">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-link"></i></span>
+                    <h3 data-ar="روابط وخدمات الطرف الثالث" data-en="Third-Party Links and Services" data-fr="Liens et services tiers">روابط وخدمات الطرف الثالث</h3>
+                </div>
+                <p data-ar="قد يحتوي الموقع على روابط أو خدمات تابعة لأطراف أخرى. تحكم سياسات الخصوصية الخاصة بهذه الجهات طريقة تعاملها مع البيانات عند استخدام خدماتها. ننصحك بمراجعة سياسات الخصوصية الخاصة بها قبل استخدام هذه الخدمات." data-en="The site may contain links or services from third parties. Their privacy policies govern how they handle data when you use their services. We recommend reviewing their privacy policies before using these services." data-fr="Le site peut contenir des liens ou des services de tiers. Leurs politiques de confidentialité régissent la manière dont ils traitent les données lorsque vous utilisez leurs services. Nous vous recommandons de consulter leurs politiques avant d'utiliser ces services.">قد يحتوي الموقع على روابط أو خدمات تابعة لأطراف أخرى. تحكم سياسات الخصوصية الخاصة بهذه الجهات طريقة تعاملها مع البيانات عند استخدام خدماتها. ننصحك بمراجعة سياسات الخصوصية الخاصة بها قبل استخدام هذه الخدمات.</p>
+            </section>
+
+            <!-- 14. Children's Privacy -->
+            <section class="policy-card" id="children">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-child-reaching"></i></span>
+                    <h3 data-ar="خصوصية الأطفال" data-en="Children's Privacy" data-fr="Confidentialité des enfants">خصوصية الأطفال</h3>
+                </div>
+                <p data-ar="خدمات متجرنا غير موجهة للأطفال ولا نقوم بجمع بياناتهم بشكل متعمد. إذا اكتشفنا أننا جمعنا بيانات طفل دون السن القانونية دون موافقة الوالدين، سنقوم بحذفها فوراً." data-en="Our store services are not directed at children, and we do not intentionally collect their data. If we discover that we have collected a child's data below the legal age without parental consent, we will delete it immediately." data-fr="Nos services ne sont pas destinés aux enfants et nous ne collectons pas intentionnellement leurs données. Si nous découvrons que nous avons collecté les données d'un enfant en dessous de l'âge légal sans consentement parental, nous les supprimerons immédiatement.">خدمات متجرنا غير موجهة للأطفال ولا نقوم بجمع بياناتهم بشكل متعمد. إذا اكتشفنا أننا جمعنا بيانات طفل دون السن القانونية دون موافقة الوالدين، سنقوم بحذفها فوراً.</p>
+            </section>
+
+            <!-- 15. Policy Updates -->
+            <section class="policy-card" id="changes">
+                <div class="policy-card-title">
+                    <span class="policy-card-icon"><i class="fas fa-pen-to-square"></i></span>
+                    <h3 data-ar="التغييرات على سياسة الخصوصية" data-en="Changes to the Privacy Policy" data-fr="Modifications de la politique de confidentialité">التغييرات على سياسة الخصوصية</h3>
+                </div>
+                <p data-ar="قد يقوم BRAVO بتحديث سياسة الخصوصية عند الحاجة. عند إجراء تحديثات مهمة:" data-en="BRAVO may update the privacy policy as needed. When significant updates are made:" data-fr="BRAVO peut mettre à jour la politique de confidentialité selon les besoins. En cas de mises à jour importantes :">قد يقوم BRAVO بتحديث سياسة الخصوصية عند الحاجة. عند إجراء تحديثات مهمة:</p>
+                <ul class="policy-list">
+                    <li class="dot" data-ar="يتم تحديث تاريخ آخر تعديل في أعلى الصفحة." data-en="The last-modified date at the top of the page is updated." data-fr="La date de dernière modification en haut de la page est mise à jour.">يتم تحديث تاريخ آخر تعديل في أعلى الصفحة.</li>
+                    <li class="dot" data-ar="يتم نشر النسخة الجديدة على الصفحة." data-en="The new version is published on the page." data-fr="La nouvelle version est publiée sur la page.">يتم نشر النسخة الجديدة على الصفحة.</li>
+                    <li class="dot" data-ar="يمكن إخطار المستخدمين بالطرق المناسبة عندما يكون ذلك مطلوباً." data-en="Users may be notified through appropriate means when required." data-fr="Les utilisateurs peuvent être notifiés par des moyens appropriés lorsque cela est requis.">يمكن إخطار المستخدمين بالطرق المناسبة عندما يكون ذلك مطلوباً.</li>
+                </ul>
+            </section>
+
+            <!-- Contact CTA -->
+            <section class="policy-contact-cta" id="contact">
+                <h3 data-ar="لديك سؤال حول الخصوصية؟" data-en="Have a Question About Privacy?" data-fr="Une question sur la confidentialité ?">لديك سؤال حول الخصوصية؟</h3>
+                <p data-ar="لا تتردد في التواصل معنا؛ يسعدنا الإجابة عن استفساراتك بخصوص بياناتك وخصوصيتك." data-en="Don't hesitate to reach out; we'd be happy to answer your questions about your data and privacy." data-fr="N'hésitez pas à nous contacter ; nous serons ravis de répondre à vos questions concernant vos données et votre confidentialité.">لا تتردد في التواصل معنا؛ يسعدنا الإجابة عن استفساراتك بخصوص بياناتك وخصوصيتك.</p>
+                <div class="policy-cta-buttons">
+                    <a class="policy-btn btn-wa" data-store-wa href="https://wa.me/201012853829"><i class="fab fa-whatsapp"></i> <span data-ar="واتساب" data-en="WhatsApp" data-fr="WhatsApp">واتساب</span></a>
+                    <a class="policy-btn btn-mail" data-store-email href="mailto:bravoenergyeg@gmail.com"><i class="fas fa-envelope"></i> <span data-ar="البريد الإلكتروني" data-en="Email" data-fr="E-mail">البريد الإلكتروني</span></a>
+                    <a class="policy-btn btn-phone" data-store-phone href="tel:+201012853829"><i class="fas fa-phone"></i> <span dir="ltr">+20 101 285 3829</span></a>
+                </div>
+            </section>
+
+            <p class="policy-legal-note" data-ar="تسري هذه السياسة على الخدمات المقدمة حالياً في المتجر، وتُحدَّث تلقائياً عند أي تغيير في طرق جمع أو استخدام أو حماية البيانات." data-en="This policy applies to the services currently provided in the store and is updated automatically upon any change in how data is collected, used, or protected." data-fr="Cette politique s'applique aux services actuellement fournis dans la boutique et est mise à jour automatiquement en cas de modification de la collecte, de l'utilisation ou de la protection des données.">تسري هذه السياسة على الخدمات المقدمة حالياً في المتجر، وتُحدَّث تلقائياً عند أي تغيير في طرق جمع أو استخدام أو حماية البيانات.</p>
+
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+<div class="footer-section">
+
+                    <div class="footer-logo">
+                        <img src="https://i.ibb.co/7tKdRmfC/68-1.png" alt="ENERGY BRAVO">
+                        <span>ENERGY BRAVO</span>
+                    </div>
+                    <p data-ar="متجر ENERGY BRAVO لتعليم صناعة المنظفات ومستحضرات التجميل والعطور" data-en="The #1 Digital Store" data-fr="La boutique numérique n°1">متجر ENERGY BRAVO لتعليم صناعة المنظفات ومستحضرات التجميل والعطور</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+</div>
+<div class="footer-section">
+                    <h4 data-ar="روابط سريعة" data-en="Quick Links" data-fr="Liens rapides">روابط سريعة</h4>
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="products.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="المنتجات" data-en="Products" data-fr="Produits">المنتجات</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="من نحن" data-en="About" data-fr="À propos">من نحن</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                                <div class="footer-section">
+                    <h4 data-ar="أقسام المتجر" data-en="Categories" data-fr="Catégories">أقسام المتجر</h4>
+                    <ul>
+                        <!-- قسم الكتب -->
+                        <li><a href="products.html?cat=books"><span class="emoji">📚</span> <span data-ar="كتب" data-en="Books" data-fr="Livres">كتب</span></a></li>
+                        
+                        <!-- قسم البرامج -->
+                        <li><a href="products.html?cat=software"><span class="emoji">💻</span> <span data-ar="برامج" data-en="Software" data-fr="Logiciels">برامج</span></a></li>
+                        
+                        <!-- قسم التركيبات (الجديد) -->
+                        <li><a href="products.html?cat=formulas"><span class="emoji">🧪</span> <span data-ar="تركيبات" data-en="Formulas" data-fr="Formules">تركيبات</span></a></li>
+                        
+                        <!-- قسم الكورسات (الجديد) -->
+                        <li><a href="products.html?cat=courses"><span class="emoji">🎓</span> <span data-ar="كورسات" data-en="Courses" data-fr="Cours">كورسات</span></a></li>
+                    </ul>
+                </div>
+                                <div class="footer-section">
+                    <h4 data-ar="السياسات" data-en="Policies" data-fr="Politiques">السياسات</h4>
+                    <ul>
+                        <li>
+                            <a href="refund-policy.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="سياسة الاسترداد" data-en="Refund Policy" data-fr="Politique de remboursement">سياسة الاسترداد</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="terms.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="الشروط والأحكام" data-en="Terms &amp; Conditions" data-fr="Conditions générales">الشروط والأحكام</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="delivery-policy.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="سياسة التسليم" data-en="Delivery Policy" data-fr="Politique de livraison">سياسة التسليم</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="privacy-policy.html">
+                                <i class="fas fa-angle-left"></i> 
+                                <span data-ar="سياسة الخصوصية" data-en="Privacy Policy" data-fr="Politique de confidentialité">سياسة الخصوصية</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                            <div class="footer-section">
+                    <h4 data-ar="تواصل" data-en="Contact" data-fr="Contact">تواصل</h4>
+<ul class="contact-info">
+
+                    <li><i class="fas fa-phone"></i> <span dir="ltr">+20 101 285 3829</span></li>
+                    <li><i class="fas fa-envelope"></i> bravoenergyeg@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span data-ar="الجيزة، مصر" data-en="Cairo, Egypt" data-fr="Le Caire, Égypte">الجيزة، مصر</span></li>
+                    </ul>
+                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ENERGY BRAVO Store. <span data-ar="جميع الحقوق محفوظة" data-en="All rights reserved" data-fr="Tous droits réservés">جميع الحقوق محفوظة</span>.</p>
+                <div class="payment-methods">
+                    <i class="fas fa-credit-card"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+                </div>
+        </footer>
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="quick-view-modal-overlay"></div>
+
+    <button class="back-to-top" aria-label="العودة للأعلى"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="js/include.js?v=33"></script>
+    <script src="js/app.js?v=20260813d"></script>
+    <script src="js/policy-data.js?v=1"></script>
+</body>
+</html>
